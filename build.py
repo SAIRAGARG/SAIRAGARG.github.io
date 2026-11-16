@@ -57,7 +57,7 @@ FOOTER = f'''<footer class="footer">
   <div class="footer-bottom">
     <div>
       <div class="mail-label">My mail id</div>
-      <a class="mail" href="mailto:sairagarg11@gmail.com">sairagarg11@gmail.com</a>
+      <a class="mail" href="mailto:gargsaira2004@gmail.com">gargsaira2004@gmail.com</a>
       <div class="socials">
         <a href="https://www.linkedin.com/in/saira-garg" target="_blank" rel="noopener" aria-label="LinkedIn">{LI}</a>
         <a href="https://github.com/SAIRAGARG" target="_blank" rel="noopener" aria-label="GitHub">{GH}</a>
@@ -414,14 +414,13 @@ video = head("YouTube Video-to-Article AI · Saira Garg", "AI project: a multimo
     <h1>YouTube Video-to-Article AI</h1>
     <p class="lede">A tool that turns any YouTube video into a skimmable article, with screenshots placed next to the words that explain them. Built for Andrej Karpathy’s LLM Challenge.</p>
     <div class="shots3" id="examples">
-      <figure><a href="https://github.com/lordgavy01/Karpathy-LLM-Challenge/blob/main/Sample%20Outputs/Nana%20Hats%20Pitch%20on%20Shark%20Tank.pdf" target="_blank" rel="noopener"><img src="assets/video-article/shark-tank.jpg" alt="Generated article: a deep dive into the Nana Hats pitch on Shark Tank, with a table of contents and an on-stage screenshot"></a><figcaption>SHARK TANK PITCH</figcaption></figure>
-      <figure><a href="https://github.com/lordgavy01/Karpathy-LLM-Challenge/blob/main/Sample%20Outputs/NBA%20Lakers%20vs.%20Pelicans.pdf" target="_blank" rel="noopener"><img src="assets/video-article/nba.jpg" alt="Generated article: Lakers vs Pelicans in the NBA Play-In Tournament, with an aerial screenshot of the arena" loading="lazy"></a><figcaption>NBA GAME</figcaption></figure>
-      <figure><a href="https://github.com/lordgavy01/Karpathy-LLM-Challenge/blob/main/Sample%20Outputs/Man%20vs%20Wild%20Episode.pdf" target="_blank" rel="noopener"><img src="assets/video-article/man-vs-wild.jpg" alt="Generated article: a visual journey through a survival documentary, with a screenshot of a climber on a cliff" loading="lazy"></a><figcaption>SURVIVAL DOCUMENTARY</figcaption></figure>
+      <figure><a href="assets/video-article/shark-tank.pdf" target="_blank" rel="noopener"><img src="assets/video-article/shark-tank.jpg" alt="Generated article: a deep dive into the Nana Hats pitch on Shark Tank, with a table of contents and an on-stage screenshot"></a><figcaption>SHARK TANK PITCH</figcaption></figure>
+      <figure><a href="assets/video-article/nba.pdf" target="_blank" rel="noopener"><img src="assets/video-article/nba.jpg" alt="Generated article: Lakers vs Pelicans in the NBA Play-In Tournament, with an aerial screenshot of the arena" loading="lazy"></a><figcaption>NBA GAME</figcaption></figure>
+      <figure><a href="assets/video-article/man-vs-wild.pdf" target="_blank" rel="noopener"><img src="assets/video-article/man-vs-wild.jpg" alt="Generated article: a visual journey through a survival documentary, with a screenshot of a climber on a cliff" loading="lazy"></a><figcaption>SURVIVAL DOCUMENTARY</figcaption></figure>
     </div>
     <p class="caption">First pages of three generated articles. Each was written and illustrated by the pipeline from the video alone. Click one to open the full article.</p>
     {meta([("ROLE", "Built end to end"), ("CONTEXT", "Andrej Karpathy’s LLM Challenge"), ("STACK", "Python · OpenAI · Streamlit")])}
     {tldr([("Problem", "Long videos are hard to skim, search or quote. A transcript alone loses the slides, code and scenes that carry half the meaning."), ("What I did", "Designed and built a pipeline that transcribes the video, picks the frames that matter, describes them with a vision model and writes an illustrated article."), ("Outcome", "2-hour videos become finished, screenshot-rich articles in under 5 minutes, tested on sports, TV, chess and documentary footage.")])}
-    <a class="jump" href="https://github.com/lordgavy01/Karpathy-LLM-Challenge" target="_blank" rel="noopener"><span>View the code on GitHub</span>{ARROW_NE}</a>
 
     {stats([("2 hr", "of video in"), ("&lt;5 min", "to a finished article"), ("&lt;1 min", "gap between text and its visual"), ("5", "video genres tested")])}
 
