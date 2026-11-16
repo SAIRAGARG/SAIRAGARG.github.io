@@ -102,7 +102,7 @@ home = head("Saira Garg — Product Manager", "Portfolio of Saira Garg — co-fo
     <h2 class="section-title">Projects &amp; Case studies</h2>
     <p class="section-sub">A glimpse of my recent work</p>
     <div class="cards">
-{card("TRACKR : Fitness Coaching Platform", "Co-founded a coaching platform and took it from 8 coach interviews to a working product in under 3 months. Owned the PRD, pricing, success metrics and beta launch plan.", "trackr.html", "Live Product", "https://trackrdaily.com", "assets/trackr/product.jpg", "the TRACKR case study", "trackr", True)}
+{card("TRACKR : Fitness Coaching Platform", "Co-founded a coaching platform for coaches and gyms, from 8 coach interviews to a live product with 30+ coaches in early access in under 1 month. Owned the PRD, pricing, metrics and the AI insights roadmap.", "trackr.html", "Live Product", "https://trackrdaily.com", "assets/trackr/product.jpg", "the TRACKR case study", "trackr", True)}
     <article class="card">
       <div class="card-body">
         <h3>MainStreet : AI Local Discovery</h3>
@@ -114,6 +114,7 @@ home = head("Saira Garg — Product Manager", "Portfolio of Saira Garg — co-fo
       </div>
       <a class="card-media ms" href="mainstreet.html" tabindex="-1" aria-hidden="true"><img src="assets/mainstreet/hifi-new-1.jpeg" alt=""><img src="assets/mainstreet/hifi-new-2.jpeg" alt=""></a>
     </article>
+{card("YouTube Video-to-Article AI", "Built a tool that turns any YouTube video into a skimmable, screenshot-rich article, processing 2-hour videos in under 5 minutes with Whisper, GPT-4 Vision and LLM writing.", "video-to-article.html", "See Examples", "video-to-article.html#examples", "assets/video-article/shark-tank.jpg", "the Video-to-Article case study", "va")}
 {card("Settle : Relocation &amp; Travel Planner", "Sized a 281M-person market, ran interviews and a survey, mapped 8 competitors and prioritised a 4-feature, AI-assisted MVP for people moving abroad.", "settle.html", "Case Study", "settle.html", "assets/home/settle-card.jpg", "the Settle case study")}
     </div>
   </section>
@@ -124,8 +125,8 @@ home = head("Saira Garg — Product Manager", "Portfolio of Saira Garg — co-fo
       <div class="tiles">
 {tile("Cisco", "Jul 2026 – Present", "Software Engineer", "Building cloud management for campus switches on the Meraki Dashboard.")}
 {tile("Snapdeal", "Jan – Apr 2025", "Software Engineering Intern", "Built in-house seller advertising tools with the product and marketing teams.")}
-{tile("70+", "Founder", "Run Club, Bathinda", "Started a community run club and grew it through outreach and group runs.")}
-{tile("Finalist", "Myntra HackerRamp 2024", "Shared Carts", "A social shopping feature that lets friends build and shop one cart together.")}
+{tile("100+", "Founder", "Run Club, Bathinda", "Started a local running community from zero, organising bi-weekly group runs.")}
+{tile("Myntra", "HackerRamp 2024", "Shared Carts", "Designed, prototyped and presented a social shopping feature that lets friends build and check out one cart together.")}
       </div>
     </div>
   </section>
@@ -257,13 +258,13 @@ trackr = head("TRACKR — Coaching platform for fitness coaches · Saira Garg", 
   <div class="col">
     <div class="eyebrow">Product case study · Co-founder · 0 → 1</div>
     <h1>TRACKR | Coaching Platform for Fitness Coaches</h1>
-    <p class="lede">A shared place for coaches and clients to plan workouts, record sessions and follow progress, replacing the spreadsheet, form and chat stack most coaches run today.</p>
+    <p class="lede">A shared place for coaches and clients to plan workouts, log sessions and meals, and follow progress, replacing the spreadsheet, form and chat stack most coaches run today.</p>
     <figure class="cover"><div class="browser"><img src="assets/trackr/product.jpg" alt="TRACKR coach overview with client follow-ups, sessions logged and adherence, next to the client app logging a bench press set"></div></figure>
-    {meta([("ROLE", "Co-Founder · Product"), ("TIMELINE", "Aug 2026 – Present"), ("STATUS", "Preparing beta launch")])}
-    {tldr([("Problem", "Online coaches are capped by admin, not demand: every new client adds hours of formatting plans, chasing check-ins and digging through chats."), ("What I did", "Interviewed 8 coaches, wrote the PRD (positioning, pricing, metrics, launch gates) and built the coach web app and client mobile app with AI tools."), ("Outcome", "Idea to working product in under 3 months, live at trackrdaily.com and preparing for a beta launch to test and iterate.")])}
+    {meta([("ROLE", "Co-Founder · Product"), ("TIMELINE", "Aug 2026 – Present"), ("STATUS", "Free early access")])}
+    {tldr([("Problem", "Online coaches are capped by admin, not demand: every new client adds hours of formatting plans, chasing check-ins and digging through chats."), ("What I did", "Interviewed 8 coaches, wrote the PRD (positioning, pricing, metrics, launch gates), benchmarked competitors and built the coach web app and client mobile app with AI tools."), ("Outcome", "Live at trackrdaily.com in under 1 month, with 30+ coaches and 7+ gyms in free early access. Next: AI insights across workouts and meals.")])}
     <a class="jump" href="https://trackrdaily.com" target="_blank" rel="noopener"><span>Visit trackrdaily.com</span>{ARROW_NE}</a>
 
-    {stats([("8", "fitness coaches interviewed"), ("&lt;3 mo", "from idea to working product"), ("2", "surfaces: coach web + client app"), ("870+", "exercises in the library")])}
+    {stats([("8", "fitness coaches interviewed"), ("&lt;1 mo", "from idea to working product"), ("30+", "coaches in early access"), ("870+", "exercises in the library")])}
 
     {h2("01", "The Problem")}
     <p>A typical online coach runs their business across four disconnected tools. Nothing connects them, so the coach becomes the integration layer, and that work grows with every client.</p>
@@ -275,6 +276,7 @@ trackr = head("TRACKR — Coaching platform for fitness coaches · Saira Garg", 
     <div class="notes">
       <div class="note sage"><b>No Unified View</b>Coaches react to whoever messages loudest, not whoever needs help most.</div>
       <div class="note slate"><b>Silent Churn</b>A disengaged client stays invisible until they quit.</div>
+      <div class="note sage"><b>Two Ways to Get Paid</b>Coaches with clients in India and abroad need both UPI and international payments.</div>
       <div class="note clay"><b>Manual Plan Updates</b>One programming change across a roster costs hours.</div>
       <div class="note plum"><b>No Trend View</b>Progression decisions are made on recall, not data.</div>
       <div class="note gold"><b>Admin Crowds Out Coaching</b>Quality slips once a roster outgrows what one person can track.</div>
@@ -282,20 +284,23 @@ trackr = head("TRACKR — Coaching platform for fitness coaches · Saira Garg", 
 
     {h2("03", "Positioning")}
     <p>Incumbent coaching platforms compete on breadth (payments, video, white-labelling) and mostly price in USD. TRACKR competes on depth in the loop coach and client repeat every day, and on India-first pricing.</p>
+    {table(["", "Kahunas", "FITR", "TRACKR"], [["Core pitch", "All-in-one coaching suite", "Business builder for coaches", "Daily training and nutrition loop"], ["Pricing", "Per client, in USD", "Subscription, in USD", "Per active client, in INR (₹300 → ₹100)"], ["AI", "Insights, client triage, AI assistants", "None advertised", "Insights across logged sets and meals (next)"], ["Breadth", "Payments, courses, communities, branded app", "Payments, storefront, branded app", "Deliberately narrow; see scope"]])}
+    <p class="caption">Competitor details from their public websites, November 2026.</p>
     {pillars([("01", "Client-side speed", "Open, see today’s session, log, done. Target: today’s workout on screen in under 2 seconds."), ("02", "One coaching workspace", "Plan training, manage clients and review progress in one place; reuse programs across clients."), ("03", "Built for teams from day one", "Every workspace is an org, from one independent coach to a coaching business with several.")])}
 
     {h2("04", "Scope: What We Said No To")}
     <p>A small team ships by choosing. These were explicitly left out of v1, each with a reason, so the core loop could be excellent.</p>
-    {table(["Out of scope for v1", "Why"], [["Sales CRM and discovery calls", "A different buyer moment; TRACKR starts after coach and client agree to work together."], ["Video calling", "Meet and Zoom work fine; no way to differentiate."], ["Open-ended chat inbox", "Rebuilding WhatsApp with fewer features; feedback is tied to sessions instead."], ["Payments and accounting", "Large compliance surface for unclear v1 value."], ["White-labelling", "The incumbents’ battleground; expensive and not our edge."]])}
+    {table(["Out of scope for v1", "Why"], [["Sales CRM and discovery calls", "A different buyer moment; TRACKR starts after coach and client agree to work together."], ["Video calling", "Meet and Zoom work fine; no way to differentiate."], ["Open-ended chat inbox", "Rebuilding WhatsApp with fewer features; feedback is tied to sessions instead."], ["White-labelling", "The incumbents’ battleground; expensive and not our edge."]])}
 
     {h2("05", "The Solution")}
     <p>Write the plan once, and every client gets their own copy.</p>
-    {pillars([("Plan", "Program builder", "Exercises, sets, reps and rest; reusable templates and a start date per client."), ("Train", "Client app", "Today’s session first, exercise demos and set-by-set logging."), ("Review", "Follow-up list", "History and a ranked list that puts the clients who need attention first.")])}
+    {pillars([("Plan", "Program builder", "Exercises, sets, reps and rest; reusable templates and a start date per client."), ("Train", "Client app", "Today’s session first, exercise demos, set-by-set logging and an AI calorie tracker for meals."), ("Review", "Follow-ups and nutrition", "Training history, meal diaries logged by photo or search, and a list of the clients who need attention first.")])}
     <h3>What it replaces</h3>
     <div class="replace">
       <div><s>Copying last week’s spreadsheet for every client</s><i>→</i><span>Assign a program once; each client gets their own copy.</span></div>
       <div><s>Asking “did you train today?” in a chat</s><i>→</i><span>Clients log every set, and the coach sees it the same day.</span></div>
       <div><s>Scrolling threads to find who’s slipping</s><i>→</i><span>A follow-up list puts the clients who need you first.</span></div>
+      <div><s>Asking clients to send photos of their meals</s><i>→</i><span>Clients log meals in the app and the coach reviews each diary.</span></div>
     </div>
 
     {h2("06", "Pricing &amp; Business Model")}
@@ -307,13 +312,18 @@ trackr = head("TRACKR — Coaching platform for fitness coaches · Saira Garg", 
     <p>North-star metric: <b>weekly logged sessions per active client</b>. It captures both sides: the coach published something worth doing, and the client did it.</p>
     {table(["Layer", "Metric", "How it’s measured"], [["Activation", "Workspace activated", "At least one client logs at least one session"], ["Engagement", "Weekly adherence", "Sessions logged ÷ sessions assigned"], ["Retention", "Coach week-4 retention", "Coach still active in week 4"], ["Leverage", "Clients per coach", "Median, month 3 vs month 1"], ["Performance", "Time to today’s workout", "Under 2 seconds on a cold start"]])}
 
-    {h2("08", "Launch Plan", "Each phase has a gate it must pass before the next one starts.")}
+    {h2("08", "Next: AI Insights", "Scoped from the competitor review. Not live yet.")}
+    <p>Once clients log every set and every meal, TRACKR has the data to do the review work for the coach. Kahunas already sells AI triage, so the bar is set. TRACKR’s edge is using set-level workout logs and meal diaries together, not only check-in forms.</p>
+    {table(["Insight", "What the coach sees", "Built from"], [["Weekly client summary", "A short note per client on what changed this week", "Sets, sessions and meal diaries"], ["Progression signals", "Lifts that have stalled or are ready to load up", "Set-by-set history"], ["Nutrition flags", "Low-protein days or missed logging, with the pattern behind it", "Meal diaries"], ["Smarter follow-ups", "The follow-up list ranked with a reason for each client", "Adherence, workouts and meals together"]])}
+    <p class="caption">Success measure: coach time spent on weekly reviews goes down while adherence holds at 65% or above.</p>
+
+    {h2("09", "Launch Plan", "Each phase has a gate it must pass before the next one starts.")}
     {table(["Phase", "Scope", "Gate to move on"], [["Alpha", "5 design-partner coaches; programs, assignment, logging, history", "5 coaches run real clients for 2 weeks with no spreadsheet"], ["Beta (next)", "25 workspaces; check-ins, feedback, follow-ups, notifications, team directories", "≥65% adherence sustained for 4 weeks; ≥50% coach week-4 retention"], ["General availability", "Bulk import, team analytics, billing", "50 paying workspaces"]])}
 
-    {h2("09", "Building with AI")}
-    <p>I own the product and build it with AI coding tools: writing requirements, reviewing flows in the running product, and directing Claude Code and OpenAI Codex across the coach web app and the client mobile app. That compressed idea-to-working-product into under 3 months.</p>
+    {h2("10", "Building with AI")}
+    <p>I own the product and build it with AI coding tools: writing requirements, reviewing flows in the running product, and directing Google’s Antigravity and Claude Code across the coach web app and the client mobile app. That compressed idea-to-working-product into under 1 month.</p>
 
-    {h2("10", "Key Takeaways")}
+    {h2("11", "Key Takeaways")}
     <ul>
       <li>Interviews should change the plan. Coach conversations moved the problem from “coaches need an app” to “scattered tools cap client capacity”, which has a measurable outcome.</li>
       <li>Depth beats breadth early on. Saying no to payments, video and chat kept the product small enough to ship and sharp enough to explain.</li>
@@ -372,9 +382,10 @@ mainstreet = head("MainStreet — AI-curated local discovery · Saira Garg", "Pr
       <figure><img src="assets/mainstreet/hifi-new-4.jpeg" alt="Single location menu" loading="lazy"><figcaption>One menu for location and routes</figcaption></figure>
     </div>
 
-    {h2("09", "Experiment Plan", "Two ways to show results, one test to choose.")}
+    {h2("09", "Experiment Plan", "Does knowing your route beat knowing where you are?")}
     {label("Planned experiment; not yet run.")}
-    {table(["", "Variant A: focused wheel", "Variant B: list view"], [["Idea", "One recommendation at a time, for a quick, focused decision", "Compare 4–5 top places at once, like Google Maps"], ["Hypothesis", "Higher conversion for time-poor users", "Faster decisions for users who like to compare"], ["Primary metric", "Feed conversion rate", "Feed conversion rate"], ["Guardrail", "Time-to-value", "Time-to-value"]])}
+    {table(["", "Variant A: route-aware", "Variant B: nearby-only"], [["Idea", "Recommend spots along the routes the user already takes", "Recommend spots near the user’s current location, as map apps do"], ["Hypothesis", "Picks that fit the day’s path convert better", "Proximity alone is enough (the null: no edge for MainStreet)"], ["Primary metric", "Feed conversion rate", "Feed conversion rate"], ["Guardrail", "Time-to-value", "Time-to-value"]])}
+    <p class="caption">This is the test that decides whether the product has an edge: if route-awareness doesn’t win, MainStreet is just another map.</p>
 
     {h2("10", "Success Metrics")}
     {table(["Metric", "Definition", "Why"], [["Time-to-value (TTV)", "Time from install to the first saved or visited place", "Proves the app delivers before users give up"], ["Feed conversion rate (FCR)", "Share of feed sessions that lead to directions, a save or a visit", "The core test of recommendation quality"], ["Implicit feedback", "Taps, saves, dwell and visits per user", "Trains the model and shows real interest"], ["Explicit feedback", "Ratings and “not my vibe” dismissals", "Fast correction signal for bad matches"], ["Weekly active users (WAU)", "Users opening the app at least once a week", "Habit: MainStreet becomes the default way to choose"]])}
@@ -385,8 +396,57 @@ mainstreet = head("MainStreet — AI-curated local discovery · Saira Garg", "Pr
     {h2("12", "Next Steps")}
     <ul>
       <li>Usability-test the MVP with expats and students in Zürich, starting with people like my sister who moved recently.</li>
-      <li>Run the wheel vs list experiment and pick the default view on feed conversion.</li>
+      <li>Run the route-aware vs nearby-only experiment to test the core hypothesis on feed conversion.</li>
       <li>Onboard independent businesses in one neighbourhood to test the business side and the paid visibility hypothesis.</li>
+    </ul>
+
+    <a class="next" href="video-to-article.html"><div><span>NEXT</span><b>YouTube Video-to-Article AI</b></div>{ARROW_L}</a>
+  </div>
+</main>
+''' + FOOTER
+
+# ------------------------------------------------------------------ VIDEO-TO-ARTICLE
+video = head("YouTube Video-to-Article AI · Saira Garg", "AI project: a multimodal pipeline that turns any YouTube video into a skimmable, screenshot-rich article, processing 2-hour videos in under 5 minutes.") + nav('work') + f'''
+<main class="case">
+  <a class="goback" href="index.html#work">{ARROW_L}<span>GO BACK</span></a>
+  <div class="col">
+    <div class="eyebrow">AI project · Generative AI · Multimodal LLMs</div>
+    <h1>YouTube Video-to-Article AI</h1>
+    <p class="lede">A tool that turns any YouTube video into a skimmable article, with screenshots placed next to the words that explain them. Built for Andrej Karpathy’s LLM Challenge.</p>
+    <div class="shots3" id="examples">
+      <figure><a href="https://github.com/lordgavy01/Karpathy-LLM-Challenge/blob/main/Sample%20Outputs/Nana%20Hats%20Pitch%20on%20Shark%20Tank.pdf" target="_blank" rel="noopener"><img src="assets/video-article/shark-tank.jpg" alt="Generated article: a deep dive into the Nana Hats pitch on Shark Tank, with a table of contents and an on-stage screenshot"></a><figcaption>SHARK TANK PITCH</figcaption></figure>
+      <figure><a href="https://github.com/lordgavy01/Karpathy-LLM-Challenge/blob/main/Sample%20Outputs/NBA%20Lakers%20vs.%20Pelicans.pdf" target="_blank" rel="noopener"><img src="assets/video-article/nba.jpg" alt="Generated article: Lakers vs Pelicans in the NBA Play-In Tournament, with an aerial screenshot of the arena" loading="lazy"></a><figcaption>NBA GAME</figcaption></figure>
+      <figure><a href="https://github.com/lordgavy01/Karpathy-LLM-Challenge/blob/main/Sample%20Outputs/Man%20vs%20Wild%20Episode.pdf" target="_blank" rel="noopener"><img src="assets/video-article/man-vs-wild.jpg" alt="Generated article: a visual journey through a survival documentary, with a screenshot of a climber on a cliff" loading="lazy"></a><figcaption>SURVIVAL DOCUMENTARY</figcaption></figure>
+    </div>
+    <p class="caption">First pages of three generated articles. Each was written and illustrated by the pipeline from the video alone. Click one to open the full article.</p>
+    {meta([("ROLE", "Built end to end"), ("CONTEXT", "Andrej Karpathy’s LLM Challenge"), ("STACK", "Python · OpenAI · Streamlit")])}
+    {tldr([("Problem", "Long videos are hard to skim, search or quote. A transcript alone loses the slides, code and scenes that carry half the meaning."), ("What I did", "Designed and built a pipeline that transcribes the video, picks the frames that matter, describes them with a vision model and writes an illustrated article."), ("Outcome", "2-hour videos become finished, screenshot-rich articles in under 5 minutes, tested on sports, TV, chess and documentary footage.")])}
+    <a class="jump" href="https://github.com/lordgavy01/Karpathy-LLM-Challenge" target="_blank" rel="noopener"><span>View the code on GitHub</span>{ARROW_NE}</a>
+
+    {stats([("2 hr", "of video in"), ("&lt;5 min", "to a finished article"), ("&lt;1 min", "gap between text and its visual"), ("5", "video genres tested")])}
+
+    {h2("01", "The Problem")}
+    <p>In early 2024 Andrej Karpathy challenged builders to turn his 2-hour lecture into a book chapter automatically: readable text, with the right screenshots in the right places. Video is linear. You can’t skim it, search it or pick up where an idea starts, and the transcript misses whatever was shown on screen.</p>
+    <p>The bar was an article a person would actually choose to read instead of watching, produced fast enough to be worth it.</p>
+
+    {h2("02", "How It Works", "Four stages, from raw video to a finished article.")}
+    {table(["Stage", "What happens", "Model or method"], [["Listen", "The video is split into 5-minute chunks, each transcribed at the same time, then stitched back with corrected timestamps.", "OpenAI Whisper"], ["Look", "A frame is sampled every 5 seconds and near-duplicates are dropped, so only frames that show something new survive.", "SSIM image similarity"], ["Understand", "Each kept frame is described using the transcript of the same section, so the description matches what is being said. Code on screen is written out.", "GPT-4 Vision"], ["Write", "Transcript and frame notes become one article with a title, table of contents, headings and screenshots in place.", "GPT-4 Turbo"]])}
+
+    {h2("03", "Key Trade-offs")}
+    {why([("Fewer frames, lower cost", "Every frame sent to the vision model costs time and money. Dropping frames that look almost the same as the last one (similarity above 0.9) removes most of a talking-head video before any model call."), ("Chunk for speed", "Transcribing one long file is slow. Splitting into 5-minute chunks and processing them in parallel is what gets a 2-hour video under 5 minutes."), ("Context in, accuracy out", "A screenshot on its own is ambiguous. Giving the vision model the transcript from the same moment keeps each caption tied to what the speaker is explaining."), ("Simple beats clever", "I also tried ranking frames by sharpness and contrast. It failed on shorter videos, so I shipped the similarity filter alone.")])}
+
+    {h2("04", "What I’d Do Next")}
+    <ul>
+      <li>Cut the cost per video further by sending only the most informative frame from each section to the vision model.</li>
+      <li>Run more model calls in parallel to bring long videos down further.</li>
+      <li>Test open-source models in place of GPT and compare article quality against cost.</li>
+    </ul>
+
+    {h2("05", "Key Takeaways")}
+    <ul>
+      <li>In an AI product, the cheapest model call is the one you don’t make. Filtering the input mattered more than tuning the prompt.</li>
+      <li>Multimodal output is only as good as its alignment. Text and image have to describe the same moment, or the article falls apart.</li>
+      <li>Test outside the brief. Running it on sports, TV and documentaries, not just lectures, showed it worked for any video.</li>
     </ul>
 
     <a class="next" href="settle.html"><div><span>NEXT</span><b>Settle — Relocation &amp; travel planner</b></div>{ARROW_L}</a>
@@ -400,7 +460,7 @@ def xp(when, org, role, text):
 def chips(label, items):
     return f'<div class="skillrow"><div class="when">{label}</div><div class="chips">' + ''.join(f'<span>{i}</span>' for i in items) + '</div></div>'
 
-about = head("About — Saira Garg", "About Saira Garg — co-founder of TRACKR, software engineer at Cisco, and founder of a 70+ member run club.") + nav('about') + f'''
+about = head("About — Saira Garg", "About Saira Garg — co-founder of TRACKR, software engineer at Cisco, and founder of a 100+ member run club.") + nav('about') + f'''
 <main>
   <section class="about-top">
     <div class="portrait"><img src="assets/saira-portrait.jpg" alt="Saira Garg standing in a garden, smiling"></div>
@@ -408,7 +468,7 @@ about = head("About — Saira Garg", "About Saira Garg — co-founder of TRACKR,
       <h1>Hey, I’m Saira!</h1>
       <p>A product manager who loves turning messy problems into simple products. I start with the people who have the problem, write down what would actually help, and then build it.</p>
       <p>Right now I’m co-founding TRACKR, a platform for fitness coaches and their clients, while working as a Software Engineer at Cisco on cloud management for campus switches.</p>
-      <p>Outside work, I run. I started a run club in Bathinda that has grown to 70+ members.</p>
+      <p>Outside work, I run. I started a run club in Bathinda that has grown to 100+ members.</p>
     </div>
   </section>
 
@@ -422,9 +482,9 @@ about = head("About — Saira Garg", "About Saira Garg — co-founder of TRACKR,
 
   <section class="about-block" id="experience">
     <h2>Experience</h2>
-    {xp("Aug 2026 – Present", "TRACKR", "Co-Founder", "Co-founded a platform where fitness coaches plan workouts, assign them to clients and track progress. Interviewed 8 coaches, wrote the PRD covering positioning, pricing and success metrics, and built the coach web app and client mobile app with AI tools in under 3 months.")}
+    {xp("Aug 2026 – Present", "TRACKR", "Co-Founder", "Co-founded a platform where fitness coaches plan workouts, assign them to clients and review training and meal diaries. Interviewed 8 coaches, wrote the PRD covering positioning, pricing and success metrics, and built the coach web app and client mobile app with AI tools in under 1 month. Now in free early access with 30+ coaches, and scoping AI insights across workouts and meals.")}
     {xp("Jul 2026 – Present", "Cisco", "Software Engineer", "Building cloud management for Cisco campus switches with cross-functional teams, so enterprise customers can onboard, monitor and automate switches from the Meraki Dashboard.")}
-    {xp("Jan 2026 – Jun 2026", "Cisco", "Software Engineering / Program Management Intern", "Led a new UCCE router feature from requirements to launch across engineering, validation and UX, supporting up to 1000 queries per second. Wrote functional specs, prioritised the Agile backlog and cut data processing time by 12%.")}
+    {xp("May – Jul 2025, Jan – Jun 2026", "Cisco", "Software Engineering Intern", "Took a pre-release contact-center (UCCE) routing feature from specs to launch with engineering, validation and UX, letting live calls query external systems at 1,000 queries per second. Cut processing latency 12%, prioritised the backlog and presented progress and risks to leadership. Earlier, moved a legacy diagnostics tool into the CCE Admin console across 20+ views with 88%+ test coverage.")}
     {xp("Jan 2025 – Apr 2025", "Snapdeal", "Software Engineering Intern", "Built in-house seller advertising tools with product and marketing teams, replacing third-party software and saving up to ₹50 Lakhs a month.")}
   </section>
 
@@ -435,23 +495,23 @@ about = head("About — Saira Garg", "About Saira Garg — co-founder of TRACKR,
 
   <section class="about-block">
     <h2>Leadership &amp; Achievements</h2>
-    {xp("Founder", "Run Club, Bathinda", "70+ members", "Founded a community run club and grew it through social media outreach and regular group runs into an active local fitness community.")}
-    {xp("Finalist · 2024", "Myntra HackerRamp WeForShe", "Shared Carts", "Designed and prototyped a social shopping feature that lets friends build and shop from one cart together, reaching the finals among thousands of teams.")}
-    {xp("2025 – 26", "PECFEST", "Head of Publicity", "Led publicity for the college’s annual cultural fest through social media and campus campaigns, driving record participation.")}
-    {xp("Education", "Punjab Engineering College", "B.Tech, Computer Science", "Chandigarh, India. CGPA 8.0. AWS AI Scholarship recipient (AI Programming Nanodegree).")}
+    {xp("Founder", "Run Club, Bathinda", "100+ members", "Started a local running community from zero, organising bi-weekly group runs.")}
+    {xp("2024", "Myntra HackerRamp WeForShe", "Shared Carts", "Designed, prototyped and presented a social shopping feature that lets friends build and check out one cart together.")}
+    {xp("2025 – 26", "PECFEST", "Head of Publicity", "Led a 100-person team working with design, sponsorship and tech to run the campaigns for the college’s annual fest.")}
+    {xp("2022 – 2026", "Punjab Engineering College", "B.Tech, Computer Science", "Chandigarh, India. CGPA 8.0. AWS AI Scholarship recipient (AI Programming Nanodegree).")}
   </section>
 
   <section class="about-block">
     <h2>Skills</h2>
-    {chips("Product", ["Product Strategy", "User Research", "Market Research", "PRDs", "Roadmapping", "Prioritization", "Competitive Analysis", "Go-to-Market", "Product Launch", "Agile / Scrum"])}
-    {chips("Data &amp; Business", ["Data Analysis", "KPIs &amp; Metrics", "Business Case", "Pricing", "Positioning"])}
-    {chips("AI", ["Claude Code", "OpenAI Codex", "Google Gemini API", "AI Prototyping"])}
-    {chips("Technical", ["Java", "Python", "JavaScript", "React.js", "Spring", "REST APIs", "Git", "JIRA", "Postman"])}
-    {chips("Design", ["Figma", "Prototyping", "Usability Testing"])}
+    {chips("Product", ["Product Strategy", "User Research", "Market Sizing", "PRDs", "Roadmapping", "Prioritization", "Competitive Analysis", "Go-to-Market", "Agile / Scrum"])}
+    {chips("Data &amp; Business", ["Data Analysis", "SQL", "KPIs &amp; North-Star Metrics", "A/B Testing", "Business Case", "Pricing Models"])}
+    {chips("AI / ML", ["LLM Applications", "Multimodal Pipelines", "Prompt Engineering", "Ranking &amp; Recommendation", "Gemini API", "Google Antigravity", "Claude Code"])}
+    {chips("Technical", ["Java", "Python", "JavaScript", "C++", "React", "Node.js", "Spring Boot", "REST APIs", "Git"])}
+    {chips("Design", ["Figma", "AI Prototyping"])}
   </section>
 </main>
 ''' + FOOTER
 
-for name, html in [("index.html", home), ("settle.html", settle), ("trackr.html", trackr), ("mainstreet.html", mainstreet), ("about.html", about)]:
+for name, html in [("index.html", home), ("settle.html", settle), ("trackr.html", trackr), ("mainstreet.html", mainstreet), ("video-to-article.html", video), ("about.html", about)]:
     with open(os.path.join(OUT, name), "w") as f: f.write(html)
     print(name, len(html))

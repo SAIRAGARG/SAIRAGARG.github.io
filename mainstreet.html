@@ -66,9 +66,10 @@
       <figure><img src="assets/mainstreet/hifi-new-4.jpeg" alt="Single location menu" loading="lazy"><figcaption>One menu for location and routes</figcaption></figure>
     </div>
 
-    <h2 class="tight"><span class="num">09</span>Experiment Plan</h2><p class="sub">Two ways to show results, one test to choose.</p>
+    <h2 class="tight"><span class="num">09</span>Experiment Plan</h2><p class="sub">Does knowing your route beat knowing where you are?</p>
     <p class="flag">Planned experiment; not yet run.</p>
-    <table class="table"><thead><tr><th></th><th>Variant A: focused wheel</th><th>Variant B: list view</th></tr></thead><tbody><tr><td>Idea</td><td>One recommendation at a time, for a quick, focused decision</td><td>Compare 4–5 top places at once, like Google Maps</td></tr><tr><td>Hypothesis</td><td>Higher conversion for time-poor users</td><td>Faster decisions for users who like to compare</td></tr><tr><td>Primary metric</td><td>Feed conversion rate</td><td>Feed conversion rate</td></tr><tr><td>Guardrail</td><td>Time-to-value</td><td>Time-to-value</td></tr></tbody></table>
+    <table class="table"><thead><tr><th></th><th>Variant A: route-aware</th><th>Variant B: nearby-only</th></tr></thead><tbody><tr><td>Idea</td><td>Recommend spots along the routes the user already takes</td><td>Recommend spots near the user’s current location, as map apps do</td></tr><tr><td>Hypothesis</td><td>Picks that fit the day’s path convert better</td><td>Proximity alone is enough (the null: no edge for MainStreet)</td></tr><tr><td>Primary metric</td><td>Feed conversion rate</td><td>Feed conversion rate</td></tr><tr><td>Guardrail</td><td>Time-to-value</td><td>Time-to-value</td></tr></tbody></table>
+    <p class="caption">This is the test that decides whether the product has an edge: if route-awareness doesn’t win, MainStreet is just another map.</p>
 
     <h2><span class="num">10</span>Success Metrics</h2>
     <table class="table"><thead><tr><th>Metric</th><th>Definition</th><th>Why</th></tr></thead><tbody><tr><td>Time-to-value (TTV)</td><td>Time from install to the first saved or visited place</td><td>Proves the app delivers before users give up</td></tr><tr><td>Feed conversion rate (FCR)</td><td>Share of feed sessions that lead to directions, a save or a visit</td><td>The core test of recommendation quality</td></tr><tr><td>Implicit feedback</td><td>Taps, saves, dwell and visits per user</td><td>Trains the model and shows real interest</td></tr><tr><td>Explicit feedback</td><td>Ratings and “not my vibe” dismissals</td><td>Fast correction signal for bad matches</td></tr><tr><td>Weekly active users (WAU)</td><td>Users opening the app at least once a week</td><td>Habit: MainStreet becomes the default way to choose</td></tr></tbody></table>
@@ -79,11 +80,11 @@
     <h2><span class="num">12</span>Next Steps</h2>
     <ul>
       <li>Usability-test the MVP with expats and students in Zürich, starting with people like my sister who moved recently.</li>
-      <li>Run the wheel vs list experiment and pick the default view on feed conversion.</li>
+      <li>Run the route-aware vs nearby-only experiment to test the core hypothesis on feed conversion.</li>
       <li>Onboard independent businesses in one neighbourhood to test the business side and the paid visibility hypothesis.</li>
     </ul>
 
-    <a class="next" href="settle.html"><div><span>NEXT</span><b>Settle — Relocation &amp; travel planner</b></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></a>
+    <a class="next" href="video-to-article.html"><div><span>NEXT</span><b>YouTube Video-to-Article AI</b></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></a>
   </div>
 </main>
 <footer class="footer">

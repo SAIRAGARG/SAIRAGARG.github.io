@@ -25,13 +25,13 @@
   <div class="col">
     <div class="eyebrow">Product case study · Co-founder · 0 → 1</div>
     <h1>TRACKR | Coaching Platform for Fitness Coaches</h1>
-    <p class="lede">A shared place for coaches and clients to plan workouts, record sessions and follow progress, replacing the spreadsheet, form and chat stack most coaches run today.</p>
+    <p class="lede">A shared place for coaches and clients to plan workouts, log sessions and meals, and follow progress, replacing the spreadsheet, form and chat stack most coaches run today.</p>
     <figure class="cover"><div class="browser"><img src="assets/trackr/product.jpg" alt="TRACKR coach overview with client follow-ups, sessions logged and adherence, next to the client app logging a bench press set"></div></figure>
-    <div class="meta"><div><span>ROLE</span><b>Co-Founder · Product</b></div><div><span>TIMELINE</span><b>Aug 2026 – Present</b></div><div><span>STATUS</span><b>Preparing beta launch</b></div></div>
-    <div class="tldr"><div><span>Problem</span><p>Online coaches are capped by admin, not demand: every new client adds hours of formatting plans, chasing check-ins and digging through chats.</p></div><div><span>What I did</span><p>Interviewed 8 coaches, wrote the PRD (positioning, pricing, metrics, launch gates) and built the coach web app and client mobile app with AI tools.</p></div><div><span>Outcome</span><p>Idea to working product in under 3 months, live at trackrdaily.com and preparing for a beta launch to test and iterate.</p></div></div>
+    <div class="meta"><div><span>ROLE</span><b>Co-Founder · Product</b></div><div><span>TIMELINE</span><b>Aug 2026 – Present</b></div><div><span>STATUS</span><b>Free early access</b></div></div>
+    <div class="tldr"><div><span>Problem</span><p>Online coaches are capped by admin, not demand: every new client adds hours of formatting plans, chasing check-ins and digging through chats.</p></div><div><span>What I did</span><p>Interviewed 8 coaches, wrote the PRD (positioning, pricing, metrics, launch gates), benchmarked competitors and built the coach web app and client mobile app with AI tools.</p></div><div><span>Outcome</span><p>Live at trackrdaily.com in under 1 month, with 30+ coaches and 7+ gyms in free early access. Next: AI insights across workouts and meals.</p></div></div>
     <a class="jump" href="https://trackrdaily.com" target="_blank" rel="noopener"><span>Visit trackrdaily.com</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
 
-    <div class="stats"><div class="stat"><b>8</b><span>fitness coaches interviewed</span></div><div class="stat"><b>&lt;3 mo</b><span>from idea to working product</span></div><div class="stat"><b>2</b><span>surfaces: coach web + client app</span></div><div class="stat"><b>870+</b><span>exercises in the library</span></div></div>
+    <div class="stats"><div class="stat"><b>8</b><span>fitness coaches interviewed</span></div><div class="stat"><b>&lt;1 mo</b><span>from idea to working product</span></div><div class="stat"><b>30+</b><span>coaches in early access</span></div><div class="stat"><b>870+</b><span>exercises in the library</span></div></div>
 
     <h2><span class="num">01</span>The Problem</h2>
     <p>A typical online coach runs their business across four disconnected tools. Nothing connects them, so the coach becomes the integration layer, and that work grows with every client.</p>
@@ -43,6 +43,7 @@
     <div class="notes">
       <div class="note sage"><b>No Unified View</b>Coaches react to whoever messages loudest, not whoever needs help most.</div>
       <div class="note slate"><b>Silent Churn</b>A disengaged client stays invisible until they quit.</div>
+      <div class="note sage"><b>Two Ways to Get Paid</b>Coaches with clients in India and abroad need both UPI and international payments.</div>
       <div class="note clay"><b>Manual Plan Updates</b>One programming change across a roster costs hours.</div>
       <div class="note plum"><b>No Trend View</b>Progression decisions are made on recall, not data.</div>
       <div class="note gold"><b>Admin Crowds Out Coaching</b>Quality slips once a roster outgrows what one person can track.</div>
@@ -50,20 +51,23 @@
 
     <h2><span class="num">03</span>Positioning</h2>
     <p>Incumbent coaching platforms compete on breadth (payments, video, white-labelling) and mostly price in USD. TRACKR competes on depth in the loop coach and client repeat every day, and on India-first pricing.</p>
+    <table class="table"><thead><tr><th></th><th>Kahunas</th><th>FITR</th><th>TRACKR</th></tr></thead><tbody><tr><td>Core pitch</td><td>All-in-one coaching suite</td><td>Business builder for coaches</td><td>Daily training and nutrition loop</td></tr><tr><td>Pricing</td><td>Per client, in USD</td><td>Subscription, in USD</td><td>Per active client, in INR (₹300 → ₹100)</td></tr><tr><td>AI</td><td>Insights, client triage, AI assistants</td><td>None advertised</td><td>Insights across logged sets and meals (next)</td></tr><tr><td>Breadth</td><td>Payments, courses, communities, branded app</td><td>Payments, storefront, branded app</td><td>Deliberately narrow; see scope</td></tr></tbody></table>
+    <p class="caption">Competitor details from their public websites, November 2026.</p>
     <div class="pillars"><div class="pillar"><i>01</i><b>Client-side speed</b>Open, see today’s session, log, done. Target: today’s workout on screen in under 2 seconds.</div><div class="pillar"><i>02</i><b>One coaching workspace</b>Plan training, manage clients and review progress in one place; reuse programs across clients.</div><div class="pillar"><i>03</i><b>Built for teams from day one</b>Every workspace is an org, from one independent coach to a coaching business with several.</div></div>
 
     <h2><span class="num">04</span>Scope: What We Said No To</h2>
     <p>A small team ships by choosing. These were explicitly left out of v1, each with a reason, so the core loop could be excellent.</p>
-    <table class="table"><thead><tr><th>Out of scope for v1</th><th>Why</th></tr></thead><tbody><tr><td>Sales CRM and discovery calls</td><td>A different buyer moment; TRACKR starts after coach and client agree to work together.</td></tr><tr><td>Video calling</td><td>Meet and Zoom work fine; no way to differentiate.</td></tr><tr><td>Open-ended chat inbox</td><td>Rebuilding WhatsApp with fewer features; feedback is tied to sessions instead.</td></tr><tr><td>Payments and accounting</td><td>Large compliance surface for unclear v1 value.</td></tr><tr><td>White-labelling</td><td>The incumbents’ battleground; expensive and not our edge.</td></tr></tbody></table>
+    <table class="table"><thead><tr><th>Out of scope for v1</th><th>Why</th></tr></thead><tbody><tr><td>Sales CRM and discovery calls</td><td>A different buyer moment; TRACKR starts after coach and client agree to work together.</td></tr><tr><td>Video calling</td><td>Meet and Zoom work fine; no way to differentiate.</td></tr><tr><td>Open-ended chat inbox</td><td>Rebuilding WhatsApp with fewer features; feedback is tied to sessions instead.</td></tr><tr><td>White-labelling</td><td>The incumbents’ battleground; expensive and not our edge.</td></tr></tbody></table>
 
     <h2><span class="num">05</span>The Solution</h2>
     <p>Write the plan once, and every client gets their own copy.</p>
-    <div class="pillars"><div class="pillar"><i>Plan</i><b>Program builder</b>Exercises, sets, reps and rest; reusable templates and a start date per client.</div><div class="pillar"><i>Train</i><b>Client app</b>Today’s session first, exercise demos and set-by-set logging.</div><div class="pillar"><i>Review</i><b>Follow-up list</b>History and a ranked list that puts the clients who need attention first.</div></div>
+    <div class="pillars"><div class="pillar"><i>Plan</i><b>Program builder</b>Exercises, sets, reps and rest; reusable templates and a start date per client.</div><div class="pillar"><i>Train</i><b>Client app</b>Today’s session first, exercise demos, set-by-set logging and an AI calorie tracker for meals.</div><div class="pillar"><i>Review</i><b>Follow-ups and nutrition</b>Training history, meal diaries logged by photo or search, and a list of the clients who need attention first.</div></div>
     <h3>What it replaces</h3>
     <div class="replace">
       <div><s>Copying last week’s spreadsheet for every client</s><i>→</i><span>Assign a program once; each client gets their own copy.</span></div>
       <div><s>Asking “did you train today?” in a chat</s><i>→</i><span>Clients log every set, and the coach sees it the same day.</span></div>
       <div><s>Scrolling threads to find who’s slipping</s><i>→</i><span>A follow-up list puts the clients who need you first.</span></div>
+      <div><s>Asking clients to send photos of their meals</s><i>→</i><span>Clients log meals in the app and the coach reviews each diary.</span></div>
     </div>
 
     <h2><span class="num">06</span>Pricing &amp; Business Model</h2>
@@ -75,13 +79,18 @@
     <p>North-star metric: <b>weekly logged sessions per active client</b>. It captures both sides: the coach published something worth doing, and the client did it.</p>
     <table class="table"><thead><tr><th>Layer</th><th>Metric</th><th>How it’s measured</th></tr></thead><tbody><tr><td>Activation</td><td>Workspace activated</td><td>At least one client logs at least one session</td></tr><tr><td>Engagement</td><td>Weekly adherence</td><td>Sessions logged ÷ sessions assigned</td></tr><tr><td>Retention</td><td>Coach week-4 retention</td><td>Coach still active in week 4</td></tr><tr><td>Leverage</td><td>Clients per coach</td><td>Median, month 3 vs month 1</td></tr><tr><td>Performance</td><td>Time to today’s workout</td><td>Under 2 seconds on a cold start</td></tr></tbody></table>
 
-    <h2 class="tight"><span class="num">08</span>Launch Plan</h2><p class="sub">Each phase has a gate it must pass before the next one starts.</p>
+    <h2 class="tight"><span class="num">08</span>Next: AI Insights</h2><p class="sub">Scoped from the competitor review. Not live yet.</p>
+    <p>Once clients log every set and every meal, TRACKR has the data to do the review work for the coach. Kahunas already sells AI triage, so the bar is set. TRACKR’s edge is using set-level workout logs and meal diaries together, not only check-in forms.</p>
+    <table class="table"><thead><tr><th>Insight</th><th>What the coach sees</th><th>Built from</th></tr></thead><tbody><tr><td>Weekly client summary</td><td>A short note per client on what changed this week</td><td>Sets, sessions and meal diaries</td></tr><tr><td>Progression signals</td><td>Lifts that have stalled or are ready to load up</td><td>Set-by-set history</td></tr><tr><td>Nutrition flags</td><td>Low-protein days or missed logging, with the pattern behind it</td><td>Meal diaries</td></tr><tr><td>Smarter follow-ups</td><td>The follow-up list ranked with a reason for each client</td><td>Adherence, workouts and meals together</td></tr></tbody></table>
+    <p class="caption">Success measure: coach time spent on weekly reviews goes down while adherence holds at 65% or above.</p>
+
+    <h2 class="tight"><span class="num">09</span>Launch Plan</h2><p class="sub">Each phase has a gate it must pass before the next one starts.</p>
     <table class="table"><thead><tr><th>Phase</th><th>Scope</th><th>Gate to move on</th></tr></thead><tbody><tr><td>Alpha</td><td>5 design-partner coaches; programs, assignment, logging, history</td><td>5 coaches run real clients for 2 weeks with no spreadsheet</td></tr><tr><td>Beta (next)</td><td>25 workspaces; check-ins, feedback, follow-ups, notifications, team directories</td><td>≥65% adherence sustained for 4 weeks; ≥50% coach week-4 retention</td></tr><tr><td>General availability</td><td>Bulk import, team analytics, billing</td><td>50 paying workspaces</td></tr></tbody></table>
 
-    <h2><span class="num">09</span>Building with AI</h2>
-    <p>I own the product and build it with AI coding tools: writing requirements, reviewing flows in the running product, and directing Claude Code and OpenAI Codex across the coach web app and the client mobile app. That compressed idea-to-working-product into under 3 months.</p>
+    <h2><span class="num">10</span>Building with AI</h2>
+    <p>I own the product and build it with AI coding tools: writing requirements, reviewing flows in the running product, and directing Google’s Antigravity and Claude Code across the coach web app and the client mobile app. That compressed idea-to-working-product into under 1 month.</p>
 
-    <h2><span class="num">10</span>Key Takeaways</h2>
+    <h2><span class="num">11</span>Key Takeaways</h2>
     <ul>
       <li>Interviews should change the plan. Coach conversations moved the problem from “coaches need an app” to “scattered tools cap client capacity”, which has a measurable outcome.</li>
       <li>Depth beats breadth early on. Saying no to payments, video and chat kept the product small enough to ship and sharp enough to explain.</li>
