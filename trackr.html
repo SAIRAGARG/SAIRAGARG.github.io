@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRACKR — Coaching platform for fitness coaches · Saira Garg</title>
+<meta name="description" content="Case study: TRACKR, a platform where fitness coaches plan workouts, assign them to clients and track progress.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="Saira Garg — home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 3h14l-3.2 5H4.8z"/><path d="M5 9.5h17l-3.2 5H1.8z"/><path d="M5.2 16h14l-3.2 5H2z"/></svg><span>Saira Garg</span></a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html#work" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="about.html#experience">Resume</a>
+  </nav>
+</header>
+
+<main class="case">
+  <a class="goback" href="index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg><span>GO BACK</span></a>
+  <div class="col">
+    <h1>TRACKR | Coaching Platform for Fitness Coaches</h1>
+    <p class="lede">A shared place for coaches and clients to plan workouts, record sessions and follow progress, replacing the spreadsheet, form and chat stack most coaches run today.</p>
+    <figure class="cover"><div class="browser"><img src="assets/trackr/product.jpg" alt="TRACKR coach overview showing active clients, client follow-ups, sessions logged and adherence, next to the client app logging a bench press set"></div></figure>
+
+    <h2>Project Overview</h2>
+    <p>Problem: Online coaches are capped not by demand but by admin. Every additional client adds hours of formatting plans, chasing check-ins and reconstructing context from chat threads.</p>
+    <p>Role: Co-Founder, Aug 2026 – Present. I defined the product from coach interviews through to a PRD covering positioning, pricing and success metrics, then built the coach web app and the client mobile app using AI tools (Claude Code, OpenAI Codex), going from idea to working product in under 3 months. TRACKR is now being prepared for a beta launch to test and iterate.</p>
+    <a class="jump" href="https://trackrdaily.com" target="_blank" rel="noopener"><span>Visit trackrdaily.com</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+    <h2>At a Glance</h2>
+    <div class="stats">
+      <div class="stat"><b>8</b><span>fitness coaches interviewed to define requirements</span></div>
+      <div class="stat"><b>&lt;3 mo</b><span>from idea to a working product</span></div>
+      <div class="stat"><b>2</b><span>surfaces: coach web workspace and client mobile app</span></div>
+      <div class="stat"><b>870+</b><span>exercises in the built-in library</span></div>
+    </div>
+
+    <h2>The Problem</h2>
+    <p>A typical online coach operates across four disconnected tools. Nothing connects them, so the coach becomes the integration layer, and that work grows with every client added.</p>
+    <table class="table">
+      <thead><tr><th>Job</th><th>Tool today</th><th>Where it fails</th></tr></thead>
+      <tbody>
+        <tr><td>Deliver the plan</td><td>Spreadsheet</td><td>Unreadable on a phone mid-set; no logging</td></tr>
+        <tr><td>Collect intake and check-ins</td><td>Online form</td><td>Responses sit in a sheet nobody opens</td></tr>
+        <tr><td>Communicate</td><td>Chat app</td><td>Coaching decisions buried in chat history</td></tr>
+        <tr><td>Track progress</td><td>Manual notes</td><td>No trend view; reconstructed from memory</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">On the other side, the client cannot reliably answer two questions: what am I doing today, and am I making progress?</p>
+
+    <h2>User Research</h2>
+    <p>I interviewed 8 fitness coaches to understand how they plan, deliver and review training today. The clearest finding was that scattered tools cap how many clients a coach can take on. That finding became the spine of the PRD.</p>
+    <h3>Key Insights &amp; Opportunity Areas</h3>
+    <div class="notes">
+      <div class="note sage"><b>No Unified View</b>Coaches react to whoever messages loudest, not to whoever needs help most.</div>
+      <div class="note slate"><b>Silent Churn</b>A disengaged client stays invisible until they quit, and the coach finds out weeks late.</div>
+      <div class="note clay"><b>Manual Plan Updates</b>One programming change repeated across a full roster costs hours of copy and paste.</div>
+      <div class="note plum"><b>No Trend View</b>Progression decisions are made on recall instead of the client’s logged history.</div>
+      <div class="note gold"><b>Admin Crowds Out Coaching</b>Quality starts to slip once a roster grows past what one person can track by hand.</div>
+    </div>
+
+    <h2>Positioning</h2>
+    <p>Most coaching platforms compete on breadth: nutrition, payments, video, wearables, white-labelling. TRACKR competes on depth in the loop a coach and client repeat every single day.</p>
+    <div class="pillars">
+      <div class="pillar"><i>01</i><b>Client-side speed</b>Open, see today’s session, log, done. The client should understand today’s workout in under two seconds.</div>
+      <div class="pillar"><i>02</i><b>One coaching workspace</b>Plan training, manage clients and review progress in one place. Reuse programs across clients.</div>
+      <div class="pillar"><i>03</i><b>Built for teams from day one</b>Every workspace is an org, whether it is one independent coach or a coaching business with several.</div>
+    </div>
+
+    <h2>The Solution</h2>
+    <p>Write the plan once, and every client gets their own copy. The coach creates a plan, shares it and sees how training is going; the client opens the app and knows exactly what to do next.</p>
+    <ul>
+      <li>Plan training: build programs with exercises, sets, reps and rest times, reuse templates and choose a start date for each client.</li>
+      <li>Follow each workout: clients see their assigned sessions, view exercise demonstrations and record their sets in the client app.</li>
+      <li>Review progress: completed sessions and workout history help the coach decide what comes next.</li>
+      <li>Know who needs you: a follow-up list puts the clients who need attention first.</li>
+    </ul>
+    <h3>What it replaces</h3>
+    <div class="replace">
+      <div><s>Copying last week’s spreadsheet for every client</s><i>→</i><span>Assign a program once. Each client gets their own copy, week after week.</span></div>
+      <div><s>Asking “did you train today?” in a chat</s><i>→</i><span>Clients log every set as they go, and the coach sees it the same day.</span></div>
+      <div><s>Scrolling threads to find who’s slipping</s><i>→</i><span>A follow-up list puts the clients who need you first.</span></div>
+    </div>
+
+    <h2>Product Architecture</h2>
+    <p>Two surfaces share one backend. Coaches work on the web, where program building and roster review are comfortable at a desk and still usable on a phone browser between sessions. Clients train in a mobile app built for the gym floor, where speed matters more than features.</p>
+    <div class="pillars">
+      <div class="pillar"><i>Coach</i><b>Web workspace</b>Overview, clients, programs and the exercise library. One coach surface instead of two.</div>
+      <div class="pillar"><i>Client</i><b>Mobile app</b>Today’s session first, set-by-set logging and workout history.</div>
+      <div class="pillar"><i>Org</i><b>Roles and access</b>Coach, Admin and Super-user roles, with each coach seeing only their own clients.</div>
+    </div>
+
+    <h2>Success Metrics</h2>
+    <p>The north-star metric is weekly logged sessions per active client. It captures both sides of the product: the coach published something worth doing, and the client did it.</p>
+    <table class="table">
+      <thead><tr><th>Layer</th><th>Metric</th><th>How it is measured</th></tr></thead>
+      <tbody>
+        <tr><td>Activation</td><td>Workspace activated</td><td>At least one client logs at least one session</td></tr>
+        <tr><td>Engagement</td><td>Weekly adherence</td><td>Sessions logged ÷ sessions assigned</td></tr>
+        <tr><td>Retention</td><td>Coach week-4 retention</td><td>Coach still active in week 4</td></tr>
+        <tr><td>Leverage</td><td>Clients per coach</td><td>Median, month 3 vs month 1</td></tr>
+        <tr><td>Performance</td><td>Time to today’s workout</td><td>Under 2 seconds on a cold start</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Building with AI</h2>
+    <p>TRACKR is built with AI coding tools. I work as the product owner: writing the requirements, reviewing flows in the running product, and directing Claude Code and OpenAI Codex through the coach web app and the client mobile app. That took TRACKR from idea to a working product in under 3 months.</p>
+
+    <h2>Key Takeaways</h2>
+    <ul>
+      <li>Depth beats breadth early on. Choosing the daily coach and client loop over a long feature list kept the product small enough to finish and sharp enough to explain.</li>
+      <li>Interviews should change the plan. Talking to coaches moved the problem statement from "coaches need an app" to "scattered tools cap client capacity", which is a problem with a measurable outcome.</li>
+      <li>Write the metric before the feature. Defining adherence and retention up front made it easier to say no to work that would not move them.</li>
+      <li>AI tools shift the bottleneck to product judgement. When building is fast, the hard part becomes knowing precisely what to ask for and noticing when the result is wrong.</li>
+    </ul>
+  </div>
+</main>
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <h2>From concepts to creation, let’s make it happen</h2>
+      <p>I’d love to tell you more about my projects and how I build. So, connect with me today and let’s start a conversation about what matters the most.</p>
+    </div>
+    <div class="badge" aria-hidden="true">
+      <svg class="ring" viewBox="0 0 120 120">
+        <defs><path id="circ" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs>
+        <circle cx="60" cy="60" r="58" fill="none" stroke="#6b6b6b" stroke-width="1"/>
+        <text font-family="Noto Sans, sans-serif" font-size="9" fill="#e8e8e8"><textPath href="#circ" textLength="288" lengthAdjust="spacing">SAIRA GARG • PRODUCT MANAGER •</textPath></text>
+      </svg>
+      <svg class="mark" viewBox="0 0 24 24" fill="#e8e8e8"><path d="M8 3h14l-3.2 5H4.8z"/><path d="M5 9.500h17l-3.200 5H1.800z"/><path d="M5.200 16h14l-3.200 5H2z"/></svg>
+    </div>
+  </div>
+  <hr class="footer-rule">
+  <div class="footer-bottom">
+    <div>
+      <div class="mail-label">My mail id</div>
+      <a class="mail" href="mailto:sairagarg11@gmail.com">sairagarg11@gmail.com</a>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/saira-garg" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-1.9 3.76-1.9 4 0 4.88 2.4 4.88 5.9V21h-4v-5c0-1.3-.03-2.9-1.9-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+        <a href="https://github.com/SAIRAGARG" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.420-3.580-8-8-8z"/></svg></a>
+      </div>
+    </div>
+    <a class="totop" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg><span>GO TO TOP</span></a>
+  </div>
+</footer>
+</body>
+</html>

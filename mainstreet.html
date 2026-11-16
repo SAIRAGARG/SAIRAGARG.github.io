@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MainStreet — AI-curated local discovery · Saira Garg</title>
+<meta name="description" content="Case study: MainStreet, an AI-curated, journey-based local discovery app for busy people in Swiss cities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="Saira Garg — home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 3h14l-3.2 5H4.8z"/><path d="M5 9.5h17l-3.2 5H1.8z"/><path d="M5.2 16h14l-3.2 5H2z"/></svg><span>Saira Garg</span></a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html#work" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="about.html#experience">Resume</a>
+  </nav>
+</header>
+
+<main class="case">
+  <a class="goback" href="index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg><span>GO BACK</span></a>
+  <div class="col">
+    <div class="eyebrow">Case study · Personal project · Built with AI workflows</div>
+    <h1>MainStreet. AI-curated local discovery, designed with AI workflows.</h1>
+    <p class="lede">A product design project exploring how AI can turn the scattered ritual of finding a good local spot — Google Maps for ratings, Instagram for vibe, TikTok for food, friends for a sanity check — into a single, predictive, journey-based discovery feed for busy people in Swiss cities.</p>
+    <div class="grid4 cover4"><img src="assets/mainstreet/hifi-new-1.jpeg" alt="Discovery screen" loading="lazy"><img src="assets/mainstreet/hifi-new-2.jpeg" alt="Pattern detected screen" loading="lazy"><img src="assets/mainstreet/hifi-new-4.jpeg" alt="Unified location dropdown" loading="lazy"><img src="assets/mainstreet/hifi-new-5.jpeg" alt="Bottom sheet list view" loading="lazy"></div>
+    <div class="origin">MainStreet started close to home. My sister recently moved to Zürich, and when she told me how hard it was to find places that actually suited her in a new city, hopping between four apps and still ending up somewhere average, I came forward with this idea: an app that learns the routes you already take and curates local spots along them.</div>
+    <a class="jump" href="#hifi-mocks"><span>Jump to hi-fi mocks</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg></a>
+    <div class="meta"><div><span>ROLE</span><b>Product &amp; Design</b></div><div><span>TYPE</span><b>Consumer · Discovery</b></div><div><span>PLATFORM</span><b>iOS · Android</b></div></div>
+
+    <h2><span class="num">01</span>Design Foundations</h2>
+    <p>Before starting any design, I focus on four things that keep the work honest and directional:</p>
+    <div class="grid4">
+      <div class="pillar"><i>a</i><b>Problem Statement</b>The reason we're building — the friction we're removing from real people's days.</div>
+      <div class="pillar"><i>b</i><b>Target Audience</b>Who we're building for, in enough detail to make real trade-offs.</div>
+      <div class="pillar"><i>c</i><b>Surface</b>Where the experience lives, and where it explicitly does not.</div>
+      <div class="pillar"><i>d</i><b>Success Metrics</b>How we'll know it's working — for users and for the business.</div>
+    </div>
+
+    <h2><span class="num">02</span>Problem Statement</h2>
+    <p>Finding the right local business is currently a mess — or doesn't happen at all. People bounce between Google Maps for ratings, Instagram to check the vibe, TikTok to see if the food looks good, and friends for recommendations — and still end up at places that don't match what they actually want. On the other side, local business owners struggle to reach their ideal customers and rarely connect with the audience they were built for.</p>
+
+    <h2><span class="num">03</span>Target Audience</h2>
+    <div class="grid3">
+      <div class="pillar"><b>DEMOGRAPHICS</b>Young professionals, expats and students (Ages 22–36) living in urban Swiss areas — Zürich, Geneva, and similar.</div>
+      <div class="pillar"><b>CHARACTERISTICS</b>Tech-savvy, values supporting local and independent businesses over major chains, has specific dietary or lifestyle preferences (vegan, specialty coffee, vintage fashion, etc.).</div>
+      <div class="pillar"><b>PAIN POINTS</b>Limited free time. They hate wasting a weekend meal or an afternoon off on a mediocre experience because a generic review platform gave it 4.5 stars. They want a curated ‘vibe' that aligns with their lifestyle without spending an hour researching it.</div>
+    </div>
+
+    <h2><span class="num">04</span>Surface</h2>
+    <p>Mobile apps (iOS &amp; Android) are in scope. Web is explicitly out of scope — the core value depends on live location, passive route learning and glanceable, thumb-first interactions that only make sense on a phone in the user's hand.</p>
+
+    <h2><span class="num">05</span>Success Metrics</h2>
+    <div class="grid5">
+      <div class="stat"><b>TTV</b><span>Time-to-Value</span></div><div class="stat"><b>FCR</b><span>Feed Conversion Rate</span></div><div class="stat"><b>IMP</b><span>Implicit Feedback</span></div><div class="stat"><b>EXP</b><span>Explicit Feedback</span></div><div class="stat"><b>WAU</b><span>Weekly Active Users</span></div>
+    </div>
+
+    <h2 class="tight"><span class="num">06</span>AI Tools · Prototyping</h2><p class="sub">Where AI accelerated the visual head start, and where it fell short.</p>
+    <p>To kick off the visual process, I used AI generation tools to get a rapid head start. They provided a great baseline and surfaced ideas much faster than manual competitive analysis. But they couldn't be used as-is — each had core UX gaps that shaped the direction of the real design.</p>
+    <div class="tool"><div><h3>Lovable</h3><div class="kind">MAP + CAROUSEL EXPLORATION</div><h5>WHAT WORKED</h5><ul><li>Decent carousel showing matching scores alongside the map</li></ul><h5 class="gap">GAPS</h5><ul><li>Splits ‘Home' and ‘Map' into two tabs — introduces unnecessary friction</li><li>Routing logic is flawed; unclear how the UI handles a plain ‘current location' state with no route</li><li>Bright red on the map reads as traffic / warning — wrong signal for a premium, curated vibe</li></ul></div><div class="shots"><img src="assets/mainstreet/ai-lovable.png" alt="Lovable exploration for MainStreet" loading="lazy"></div></div>
+    <div class="tool"><div><h3>Figma Make</h3><div class="kind">RAPID LAYOUT EXPLORATION</div><h5>WHAT WORKED</h5><ul><li>Fast baseline styling</li><li>Surfaces card and grid ideas quickly</li></ul><h5 class="gap">GAPS</h5><ul><li>No dedicated list view to actually browse personalized suggestions</li><li>Context is broken — no clear signal of where the search is happening</li><li>No way to add a route or differentiate it from a standard neighborhood search</li></ul></div><div class="shots"><img src="assets/mainstreet/ai-figma-make.png" alt="Figma Make exploration for MainStreet" loading="lazy"></div></div>
+    <div class="tool"><div><h3>Google Stitch</h3><div class="kind">ONBOARDING &amp; DISCOVERY STRUCTURE</div><h5>WHAT WORKED</h5><ul><li>Strong onboarding baseline — pictorial choices, one question per page</li><li>Confirms the low-cognitive-load direction I was already thinking about</li></ul><h5 class="gap">GAPS</h5><ul><li>‘location_on' header is vague and unhelpful</li><li>No system for manually applying routes or surfacing learned ones</li><li>Separates ‘Matches for You' from the Map — the exact split I chose to solve</li></ul></div><div class="shots"><img src="assets/mainstreet/ai-google-stitch.png" alt="Google Stitch exploration 1 for MainStreet" loading="lazy"><img src="assets/mainstreet/ai-google-stitch-2.png" alt="Google Stitch exploration 2 for MainStreet" loading="lazy"></div></div>
+
+    <h2 class="tight"><span class="num">07</span>Wireframing</h2><p class="sub">Back to paper, to solve the structural flaws.</p>
+    <p>After identifying the structural flaws in the AI explorations, I stepped back and moved to paper. Onboarding was designed around a single question per screen with heavy use of visual graphics to drastically reduce cognitive load.</p>
+    <p>I also prioritised a dedicated ‘pre-permission' location screen. Because the app's value depends on tracking daily routes, it's critical to set the right tone and clearly explain the value exchange before triggering the OS-level permission prompt.</p>
+    <p>For the home screen, the challenge was seamlessly combining four complex elements: map interactions, routing logic, current location, and a personalised list of places with matching scores. I mapped out how users would intuitively add routes or apply quick filters like ‘Coffee' or ‘Dinner' without losing context.</p>
+    <div class="shots3">
+      <figure><img src="assets/mainstreet/wireframe-onboarding.png" alt="Paper wireframe — Splash, onboarding and pre-permission" loading="lazy"><figcaption>SPLASH · ONBOARDING · PRE-PERMISSION</figcaption></figure>
+      <figure><img src="assets/mainstreet/wireframe-home.png" alt="Paper wireframe — Home screen trials" loading="lazy"><figcaption>HOME SCREEN TRIALS</figcaption></figure>
+      <figure><img src="assets/mainstreet/wireframe-location.png" alt="Paper wireframe — Location sheet, nearby and nav" loading="lazy"><figcaption>LOCATION SHEET · NEARBY · NAV</figcaption></figure>
+    </div>
+
+    <h2 class="tight"><span class="num">08</span>Mocks for Onboarding</h2><p class="sub">One question per screen, for both user and business flows.</p>
+    <p>The onboarding screens are designed to hold one question per page — decreasing cognitive load and minimising time spent on any single screen. Separate onboarding flows exist for the business owner and the everyday user.</p>
+    <div class="shots2">
+      <figure><img src="assets/mainstreet/onboarding-1.png" alt="Splash screen" loading="lazy"><figcaption>SPLASH SCREEN</figcaption></figure>
+      <figure><img src="assets/mainstreet/onboarding-2.png" alt="Onboarding — user and business" loading="lazy"><figcaption>ONBOARDING — USER &amp; BUSINESS</figcaption></figure>
+      <figure><img src="assets/mainstreet/onboarding-3.png" alt="Business onboarding" loading="lazy"><figcaption>BUSINESS ONBOARDING</figcaption></figure>
+      <figure><img src="assets/mainstreet/onboarding-4.png" alt="User onboarding" loading="lazy"><figcaption>USER ONBOARDING</figcaption></figure>
+    </div>
+
+    <div id="hifi-mocks"></div>
+    <h2 class="tight"><span class="num">09</span>Hi-fi Mocks</h2><p class="sub">The active ‘Exploring' state — before routing is applied.</p>
+    <p>From the wireframes, I developed a set of high-fidelity screens that walk through the core loop — from a plain ‘Exploring' state, to passive route detection, to the unified spatial controls that hold it all together.</p>
+    <div class="hifi"><div class="shot"><img src="assets/mainstreet/hifi-new-1.jpeg" alt="Discovery — current location" loading="lazy"></div><div><div class="k">01 · HI-FI</div><h3>Discovery — current location</h3><p>The default ‘Exploring' state stays fundamentally map-centric to preserve context, paired with low-friction quick-filter pills — ‘Open Now', ‘Coffee', ‘Dinner' — so users can rapidly narrow criteria without ever opening a separate search menu. The wheel carousel maximises each venue's visual aesthetic: walk time, a Smart Matching Score, and vibe tags like ‘opulent' or ‘cozy' answer <em>is this my vibe?</em> at a single glance.</p></div></div>
+    <div class="hifi"><div class="shot"><img src="assets/mainstreet/hifi-new-2.jpeg" alt="Pattern detected — new route" loading="lazy"></div><div><div class="k">02 · HI-FI</div><h3>Pattern detected — new route</h3><p>MainStreet's true differentiator: predictive, journey-based curation. The system passively recognises a repeated route — Wiedikon → Zurich HB — and surfaces a subtle ‘Pattern Detected' banner, curating the sheet to matches along that path. It proves the intelligence without ever asking the user to configure it.</p></div></div>
+    <div class="hifi"><div class="shot"><img src="assets/mainstreet/hifi-new-3.jpeg" alt="No banner — learned commute" loading="lazy"></div><div><div class="k">03 · HI-FI</div><h3>No banner — learned commute</h3><p>Once acknowledged, the banner is dismissed and stays hidden for subsequent trips on the same route. Utility apps lose trust the moment they become noisy — showing the pattern once, then quietly curating in the background, is the detail that earns the second visit.</p></div></div>
+    <div class="hifi"><div class="shot"><img src="assets/mainstreet/hifi-new-4.jpeg" alt="Unified location dropdown" loading="lazy"></div><div><div class="k">04 · HI-FI</div><h3>Unified location dropdown</h3><p>The most important structural decision: all spatial controls live inside a single top-left menu — switching to a learned ‘Morning Commute', editing a saved route, or jumping to a new neighborhood. The top-left universally controls <em>where</em> the app is looking, so the bottom sheet is free to focus purely on <em>what</em> is there.</p></div></div>
+
+    <h2 class="tight"><span class="num">10</span>Alternative — Bottom Sheet List</h2><p class="sub">Optimised for rapid scanning, closer to established habits.</p>
+    <div class="hifi"><div class="shot"><img src="assets/mainstreet/hifi-new-5.jpeg" alt="Alternative — bottom sheet list view" loading="lazy"></div><div><p>I also built an alternative mock using a standard bottom-sheet list. The wheel is optimised for a ‘focused decision' model — one premium recommendation at a time.</p><p>This alternative is designed for users who prioritise rapid scanning: it lets them cross-compare 4–5 highly-rated places simultaneously and leans on established mental models from apps like Google Maps.</p></div></div>
+
+    <h2 class="tight"><span class="num">11</span>Design Decisions — the Whys</h2><p class="sub">Each decision maps back to trust, focus or premium feel.</p>
+    <div class="why">
+      <div><b>The Unified Location Dropdown</b><span>All spatial controls — current location, learned routes, route editing — live inside a single top-left menu. The top-left corner dictates where the app is looking; the feed dictates what is there. It prevents routing features from getting buried in a Settings or Profile tab and keeps the mental model perfectly clean.</span></div>
+      <div><b>Contextual Header &amp; One-Time Banner</b><span>The ‘Pattern Detected' banner appears only once, on initial route discovery, then hides for subsequent trips. Utility apps lose trust when they get noisy. Showing it once proves the intelligence without becoming annoying.</span></div>
+      <div><b>The Focused Immersive Wheel</b><span>Instead of a dense bottom-sheet list, a rotating wheel elevates one premium recommendation at a time. Highly tactile, differentiated from utilitarian map interfaces, and better suited to a time-poor user making a focused decision. Users swipe to spin and explore other curated options.</span></div>
+      <div><b>The Floating Navigation Bar</b><span>A decoupled, dark floating bar — not an edge-to-edge system tab bar. Maximises immersive map visibility when the sheet is closed, and anchors primary buttons within the thumb zone per Fitts's Law.</span></div>
+      <div><b>Matching Scores &amp; Vibe Tags</b><span>Discovery cards lead with a specific match percentage (e.g. ‘95% Match'), walk time (‘4 mins') and short vibe tags (‘Fine Dine · Cozy', ‘Exclusive · Buffet'). The UI answers ‘Why is this for me?' before ‘How far is it?'.</span></div>
+      <div><b>Color Psychology — Indigo Ascent</b><span>Deliberately avoided red and green. Red reads as traffic / warning on a map; green makes it feel like a GPS clone. A deep blue-purple (indigo) is subtle but instantly signals a premium, curated matchmaking tool.</span></div>
+      <div><b>Accessibility</b><span>48×48px minimum tap targets, WCAG AA contrast, dynamic text sizing, VoiceOver support and color-independent affordances — built in, not bolted on.</span></div>
+    </div>
+
+    <a class="next" href="settle.html"><div><span>NEXT</span><b>Settle — Relocation &amp; travel planner</b></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></a>
+  </div>
+</main>
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <h2>From concepts to creation, let’s make it happen</h2>
+      <p>I’d love to tell you more about my projects and how I build. So, connect with me today and let’s start a conversation about what matters the most.</p>
+    </div>
+    <div class="badge" aria-hidden="true">
+      <svg class="ring" viewBox="0 0 120 120">
+        <defs><path id="circ" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs>
+        <circle cx="60" cy="60" r="58" fill="none" stroke="#6b6b6b" stroke-width="1"/>
+        <text font-family="Noto Sans, sans-serif" font-size="9" fill="#e8e8e8"><textPath href="#circ" textLength="288" lengthAdjust="spacing">SAIRA GARG • PRODUCT MANAGER •</textPath></text>
+      </svg>
+      <svg class="mark" viewBox="0 0 24 24" fill="#e8e8e8"><path d="M8 3h14l-3.2 5H4.8z"/><path d="M5 9.500h17l-3.200 5H1.800z"/><path d="M5.200 16h14l-3.200 5H2z"/></svg>
+    </div>
+  </div>
+  <hr class="footer-rule">
+  <div class="footer-bottom">
+    <div>
+      <div class="mail-label">My mail id</div>
+      <a class="mail" href="mailto:sairagarg11@gmail.com">sairagarg11@gmail.com</a>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/saira-garg" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-1.9 3.76-1.9 4 0 4.88 2.4 4.88 5.9V21h-4v-5c0-1.3-.03-2.9-1.9-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+        <a href="https://github.com/SAIRAGARG" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.420-3.580-8-8-8z"/></svg></a>
+      </div>
+    </div>
+    <a class="totop" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg><span>GO TO TOP</span></a>
+  </div>
+</footer>
+</body>
+</html>
