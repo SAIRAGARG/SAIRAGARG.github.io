@@ -94,7 +94,7 @@ home = head("Saira Garg — Product Manager", "Portfolio of Saira Garg — co-fo
 <section class="hero">
   <span class="glow l1"></span><span class="glow l2"></span><span class="glow r1"></span><span class="glow r2"></span>
   <h1>Hi, I’m Saira Garg<br>a Product Manager</h1>
-  <p>focused on turning user research into simple products people actually use, from first interview to launch</p>
+  <p>who turns user and market insight into products, and takes them from problem to launch with engineering, design and business teams</p>
 </section>
 
 <main>
@@ -102,11 +102,11 @@ home = head("Saira Garg — Product Manager", "Portfolio of Saira Garg — co-fo
     <h2 class="section-title">Projects &amp; Case studies</h2>
     <p class="section-sub">A glimpse of my recent work</p>
     <div class="cards">
-{card("TRACKR : Fitness Coaching Platform", "A shared place for coaches and clients to plan workouts, record sessions and follow progress. Co-founded and built with AI tools, from idea to working product in under 3 months.", "trackr.html", "Live Product", "https://trackrdaily.com", "assets/trackr/product.jpg", "the TRACKR case study", "trackr", True)}
+{card("TRACKR : Fitness Coaching Platform", "Co-founded a coaching platform and took it from 8 coach interviews to a working product in under 3 months. Owned the PRD, pricing, success metrics and beta launch plan.", "trackr.html", "Live Product", "https://trackrdaily.com", "assets/trackr/product.jpg", "the TRACKR case study", "trackr", True)}
     <article class="card">
       <div class="card-body">
         <h3>MainStreet : AI Local Discovery</h3>
-        <p>A journey-based discovery feed that learns your daily routes and surfaces local spots that match your vibe. It began with my sister’s move to Zürich.</p>
+        <p>An AI-powered, route-aware discovery app for expats in Swiss cities. Defined the problem, AI matching model, scope, metrics and experiment plan. It began with my sister’s move to Zürich.</p>
         <div class="card-actions">
           <a class="round" href="mainstreet.html" aria-label="Open the MainStreet case study">{ARROW_NE}</a>
           <a class="pill" href="mainstreet.html">Case Study</a>
@@ -114,7 +114,7 @@ home = head("Saira Garg — Product Manager", "Portfolio of Saira Garg — co-fo
       </div>
       <a class="card-media ms" href="mainstreet.html" tabindex="-1" aria-hidden="true"><img src="assets/mainstreet/hifi-new-1.jpeg" alt=""><img src="assets/mainstreet/hifi-new-2.jpeg" alt=""></a>
     </article>
-{card("Settle : Relocation &amp; Travel Planner", "Settle is a personal relocation assistant that turns the chaos of moving to a new country into a clear, guided, and manageable process", "settle.html", "Case Study", "settle.html", "assets/home/settle-card.jpg", "the Settle case study")}
+{card("Settle : Relocation &amp; Travel Planner", "Sized a 281M-person market, ran interviews and a survey, mapped 8 competitors and prioritised a 4-feature, AI-assisted MVP for people moving abroad.", "settle.html", "Case Study", "settle.html", "assets/home/settle-card.jpg", "the Settle case study")}
     </div>
   </section>
 
@@ -132,366 +132,267 @@ home = head("Saira Garg — Product Manager", "Portfolio of Saira Garg — co-fo
 </main>
 ''' + FOOTER
 
-# ------------------------------------------------------------------ SETTLE
-def fig(src, alt, cls='', cap=''):
+# ------------------------------------------------------------------ CASE STUDY HELPERS (PM framing)
+def h2(num, title, sub=''):
+    t = f'<h2 class="tight"><span class="num">{num}</span>{title}</h2>' if sub else f'<h2><span class="num">{num}</span>{title}</h2>'
+    return t + (f'<p class="sub">{sub}</p>' if sub else '')
+def stats(items):
+    return '<div class="stats">' + ''.join(f'<div class="stat"><b>{b}</b><span>{s}</span></div>' for b, s in items) + '</div>'
+def meta(items):
+    return '<div class="meta">' + ''.join(f'<div><span>{k}</span><b>{v}</b></div>' for k, v in items) + '</div>'
+def table(head, rows):
+    h = ''.join(f'<th>{x}</th>' for x in head)
+    r = ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in row) + '</tr>' for row in rows)
+    return f'<table class="table"><thead><tr>{h}</tr></thead><tbody>{r}</tbody></table>'
+def pillars(items, cls='pillars'):
+    return f'<div class="{cls}">' + ''.join(f'<div class="pillar"><i>{i}</i><b>{b}</b>{t}</div>' if i else f'<div class="pillar"><b>{b}</b>{t}</div>' for i, b, t in items) + '</div>'
+def why(items):
+    return '<div class="why">' + ''.join(f'<div><b>{b}</b><span>{t}</span></div>' for b, t in items) + '</div>'
+def tldr(items):
+    return '<div class="tldr">' + ''.join(f'<div><span>{k}</span><p>{v}</p></div>' for k, v in items) + '</div>'
+def img(path, alt, cap=''):
     c = f'<figcaption>{cap}</figcaption>' if cap else ''
-    return f'<figure class="{cls}"><img src="assets/settle/{src}" alt="{alt}" loading="lazy">{c}</figure>'
+    return f'<figure><img src="assets/{path}" alt="{alt}" loading="lazy">{c}</figure>'
+def label(t):
+    return f'<p class="flag">{t}</p>'
 
-settle = head("Settle — Relocation & Travel Partner · Saira Garg", "Case study: Settle, a personal relocation assistant that turns the chaos of moving to a new country into a clear, guided process.") + nav('work') + f'''
+# ------------------------------------------------------------------ SETTLE
+def chart(q, vals, mx):
+    bars = ''.join(f'<i data-v="{v}" style="height:{v/mx*100:.1f}%"></i>' for v in vals)
+    return f'<div class="chart"><h4>{q}</h4><div class="plot"><div class="bars">{bars}</div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div>'
+SURVEY = ('<div class="survey" role="img" aria-label="Survey results: number of people per difficulty rating from 1 to 5, for four questions">'
+    + chart("How challenging was it to manage and keep track of relocation-related tasks?", [0, 18, 8, 34, 20], 36)
+    + chart("How challenging was it to find reliable and trustworthy information?", [0, 8, 22, 28, 22], 32)
+    + chart("To what extent did you feel lonely or isolated after the move?", [0, 2, 10, 30, 38], 42)
+    + chart("How stressful did you find the overall relocation process?", [2, 4, 16, 18, 30], 32) + '</div>')
+
+settle = head("Settle — Relocation & Travel Partner · Saira Garg", "Product case study: Settle, an AI-assisted relocation app, from market sizing and user research to a prioritised MVP.") + nav('work') + f'''
 <main class="case">
   <a class="goback" href="index.html#work">{ARROW_L}<span>GO BACK</span></a>
   <div class="col">
+    <div class="eyebrow">Product case study · Discovery to MVP · 8 weeks</div>
     <h1>Settle | Relocation &amp; Travel Partner</h1>
     <p class="lede">A personal relocation assistant that turns the chaos of moving to a new country into a clear, guided, and manageable process.</p>
-    <figure class="cover sharp"><img width="2280" height="1400" src="assets/settle/hero.avif" alt="Settle app screens: sign-up, relocation task plan, documents, community and AI assistant"></figure>
+    <figure class="cover sharp"><img src="assets/settle/hero.avif" alt="Settle app screens: sign-up, relocation task plan, documents, community and AI assistant"></figure>
+    {meta([("ROLE", "Product owner, end to end"), ("TIMELINE", "8-week sprint"), ("SCOPE", "Research · Strategy · MVP")])}
+    {tldr([("Problem", "Moving abroad means hundreds of fragmented tasks spread across government sites, forums and chats, and no single place tells you what to do next."), ("What I did", "Sized the market, ran interviews and a survey, mapped 8 competitors, prioritised a 4-feature MVP and took it to a clickable prototype."), ("Outcome", "A phased, AI-assisted relocation plan that fills a gap none of the 8 competitors covered: one personal journey from visa to feeling at home.")])}
 
-    <h2>Project Overview</h2>
-    <p>Problem: International relocation is rarely a seamless transition. It is a complex web of hundreds of fragmented tasks.</p>
-    <p>Role: To address this, I led an 8-week end-to-end design sprint to create Settle, a mobile relocation partner. Grounded in comprehensive user research, the app bridges the gap between travel and residency, organizing the chaos of moving into a clear, manageable roadmap that prioritizes users peace of mind.</p>
-    <a class="jump" href="#hifi"><span>Jump to hi-fi designs</span>{ARROW_D}</a>
+    {h2("01", "The Problem")}
+    <p>International relocation is rarely a seamless transition. It is a complex web of hundreds of fragmented tasks, and the order matters: you often need a bank account to rent a flat, but an address to open the bank account.</p>
+    <p>Existing tools solve isolated pieces (task lists, document storage, B2B relocation services) and leave the individual mover to stitch them together.</p>
 
-    <h2>Relocation Market</h2>
-    <p>Migration is no longer a niche event; it is a global mega trend. According to the 2024 UN World Migration Report, there are approximately 281 million international migrants globally. This number has doubled since 1990 <a class="t" href="https://worldmigrationreport.iom.int/" target="_blank" rel="noopener">[source]</a>. The Organisation for Economic Co-operation and Development reports that over 6 million people <a class="t" href="https://www.oecd.org/en/topics/migration.html" target="_blank" rel="noopener">[source]</a> move permanently to developed countries every year. This excludes the millions of students and temporary "Digital Nomads". People move due to variety of reasons:</p>
-    <ul>
-      <li>70% Economic Opportunity: Skilled workers moving for higher wages in example tech hubs (Berlin, London, SF).</li>
-      <li>20% Education: International students who need visa/housing support before they even graduate.</li>
-      <li>10% Family/Lifestyle: Joining a partner or seeking a better quality of life.</li>
-    </ul>
+    {h2("02", "Market Opportunity")}
+    <p>Migration is no longer a niche event. According to the 2024 UN World Migration Report there are roughly 281 million international migrants, a number that has doubled since 1990, and the OECD reports over 6 million people move permanently to developed countries every year, before counting students and digital nomads.</p>
+    {stats([("281M", "international migrants worldwide"), ("2×", "growth since 1990"), ("6M+", "permanent moves to OECD countries a year"), ("70%", "move for economic opportunity")])}
+    <h3>Segment choice</h3>
+    {table(["Segment", "Share of movers", "Decision"], [["Skilled workers moving for a job (e.g. Berlin, London, SF)", "~70%", "<b>Primary.</b> Largest segment, hard deadlines, high willingness to pay for certainty."], ["International students", "~20%", "Secondary. Visa and housing needs overlap with the core plan."], ["Family and lifestyle moves", "~10%", "Later. Needs vary too much for a v1 plan."]])}
 
-    <h2>User Research</h2>
-    <p>Our comprehensive research phase was driven by three key objectives: understand relocation challenges, Identify time-sensitive tasks, and learn how people currently organize moves.</p>
-    <h3>Qualitative Research</h3>
-    <p>We conducted 4 user interviews to learn about users’ pain points and preferences and understand their needs and expectations.</p>
-    <h3>Quantitative Research</h3>
-    <div class="survey" role="img" aria-label="Survey results, number of people per difficulty rating from 1 to 5, for four questions"><div class="chart"><h4>How challenging was it to manage and keep track of relocation-related tasks?</h4><div class="plot"><div class="bars"><i data-v="0" style="height:0.0%"></i><i data-v="18" style="height:50.0%"></i><i data-v="8" style="height:22.2%"></i><i data-v="34" style="height:94.4%"></i><i data-v="20" style="height:55.6%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div><div class="chart"><h4>How challenging was it to find reliable and trustworthy information?</h4><div class="plot"><div class="bars"><i data-v="0" style="height:0.0%"></i><i data-v="8" style="height:25.0%"></i><i data-v="22" style="height:68.8%"></i><i data-v="28" style="height:87.5%"></i><i data-v="22" style="height:68.8%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div><div class="chart"><h4>To what extent did you feel lonely or isolated after the move?</h4><div class="plot"><div class="bars"><i data-v="0" style="height:0.0%"></i><i data-v="2" style="height:4.8%"></i><i data-v="10" style="height:23.8%"></i><i data-v="30" style="height:71.4%"></i><i data-v="38" style="height:90.5%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div><div class="chart"><h4>How stressful did you find the overall relocation process?</h4><div class="plot"><div class="bars"><i data-v="2" style="height:6.2%"></i><i data-v="4" style="height:12.5%"></i><i data-v="16" style="height:50.0%"></i><i data-v="18" style="height:56.2%"></i><i data-v="30" style="height:93.8%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div></div>
-    <p class="caption">A survey was created to gather insights into users’ preferences on feature prioritization to find the common segment and validate our hypothesis.</p>
-
-    <h2>Competitive Analysis</h2>
-    <p>A competitive analysis revealed that existing solutions focus on isolated problems — such as task management, document storage, or relocation services — but fail to offer a unified, user-centric journey.</p>
-    <div class="boxes">
-      <div class="box"><b>Relocation Services</b><ul><li>Deel</li><li>Localyze</li></ul></div>
-      <div class="box"><b>Productivity Tools</b><ul><li>Notion</li><li>Todoist</li></ul></div>
-      <div class="box"><b>Community Platforms</b><ul><li>Reddit</li><li>Facebook Groups</li></ul></div>
-      <div class="box"><b>Document Storage</b><ul><li>Google Drive</li><li>Dropbox</li></ul></div>
-    </div>
-    <p>A comparison of relocation, productivity, and support platforms</p>
-    <table class="table">
-      <thead><tr><th>Competitor insight</th><th>UX Gap Identified</th><th>Opportunity</th></tr></thead>
-      <tbody>
-        <tr><td>Relocation tools are B2B focused</td><td>Individual users feel lost</td><td>Create a personal relocation platform</td></tr>
-        <tr><td>Task apps are generic</td><td>No relocation context</td><td>Phase based task structure</td></tr>
-        <tr><td>Document tools lack guidance</td><td>Users don’t know what’s required</td><td>“Documents you might need” section</td></tr>
-        <tr><td>Communities are scattered</td><td>Advice is hard to trust</td><td>In-app, location based discussions</td></tr>
-        <tr><td>No real time help</td><td>Users search externally</td><td>Embedded AI assistant</td></tr>
-      </tbody>
-    </table>
-
-    <h2>Key Insights &amp; Opportunity Areas</h2>
+    {h2("03", "User Research")}
+    <p>Three questions drove the research: what makes relocation hard, which tasks are time-critical, and how people organise a move today. I ran 4 in-depth interviews to find the pain points, then a survey to size them.</p>
+    {SURVEY}
+    <p class="caption">Survey responses: tracking tasks, finding trustworthy information and isolation after the move all skewed to the hardest end of the scale.</p>
+    <h3>Key insights</h3>
     <div class="notes">
-      <div class="note blue"><b>Cognitive Overload</b>Users are drowning in unverified information from scattered sources</div>
-      <div class="note red"><b>The Verification Loop</b>70% of users waste 5+ hours/week cross-referencing data, lacking a 24/7 support system to validate their findings.</div>
-      <div class="note green"><b>Task Sequencing</b>Users fail to identify which tasks block others (e.g., "I need a bank account to rent, but an address to bank"), leading to operational deadlocks.</div>
-      <div class="note purple"><b>Asset Management</b>Critical documents (Visas, Deeds, Contracts) are often disorganized, causing panic during high-stakes appointments.</div>
-      <div class="note orange"><b>Social Displacement</b>Beyond logistics, users struggle with the "soft" challenges of relocation: loneliness and the lack of a local support network.</div>
+      <div class="note blue"><b>Cognitive Overload</b>Users are drowning in unverified information from scattered sources.</div>
+      <div class="note red"><b>The Verification Loop</b>70% of users waste 5+ hours/week cross-referencing data, with no 24/7 way to check what they found.</div>
+      <div class="note green"><b>Task Sequencing</b>Users can’t see which tasks block others, which leads to deadlocks.</div>
+      <div class="note purple"><b>Asset Management</b>Critical documents (visas, deeds, contracts) are scattered, causing panic before high-stakes appointments.</div>
+      <div class="note orange"><b>Social Displacement</b>Beyond logistics, loneliness and the lack of a local network are real costs of moving.</div>
     </div>
 
-    <h2>The Solution</h2>
-    <p>While brainstorming the best approach for the project, I empathised with the user's problems and made conceptions based on research and available data upon which I implemented the designs.</p>
-    <p>Listed below are some major product requirements that I considered the most important to drive the overall user experience.</p>
-    <ul>
-      <li>Automatically generate a comprehensive relocation task list with clear timelines, allowing users to fully manage their journey by editing, deleting, or tracking progress in real-time.</li>
-      <li>Add a feature that allows users to upload the required documents. The documents should be reviewed internally by us and anything missing should be clearly flagged.</li>
-      <li>Add a support system where users can clear any doubt 24 X 7. The user journey to reach out to the support should be intuitive.</li>
-      <li>Foster a sense of belonging by integrating community features, such as local event listings and discussion hubs, to help users feel 'at home' even before they arrive.</li>
-    </ul>
+    {h2("04", "Competitive Landscape")}
+    <p>I reviewed 8 products across four categories: relocation services (Deel, Localyze), productivity tools (Notion, Todoist), community platforms (Reddit, Facebook Groups) and document storage (Google Drive, Dropbox). Each solves one slice; none offers a personal, end-to-end journey.</p>
+    {table(["Competitor insight", "Gap for the user", "Opportunity for Settle"], [["Relocation tools are B2B, sold to employers", "Individual movers feel lost", "A personal relocation platform"], ["Task apps are generic", "No relocation context or ordering", "Phase-based task plan"], ["Document tools lack guidance", "Users don’t know what’s required", "“Documents you might need”"], ["Communities are scattered", "Advice is hard to trust", "Location-based discussions in-app"], ["No real-time help", "Users search externally", "Embedded AI assistant"]])}
 
-    <h2>User Persona : Primary user</h2>
+    {h2("05", "Target User")}
     <div class="persona">
       <div class="id"><img src="assets/settle/persona-photo.avif" alt="Portrait of the persona, Priya Sharma" loading="lazy">
-        <dl><dt>NAME :</dt><dd>Priya Sharma</dd><dt>AGE :</dt><dd>27</dd><dt>ROLE :</dt><dd>Software Engineer</dd><dt>CONTEXT :</dt><dd>Moving from Bangalore, India → Berlin, Germany for a full-time job</dd><dt>DEVICE BEHAVIOUR :</dt><dd>Mobile-first, expects quick, clear actions</dd></dl></div>
+        <dl><dt>NAME :</dt><dd>Priya Sharma, 27</dd><dt>ROLE :</dt><dd>Software Engineer</dd><dt>CONTEXT :</dt><dd>Moving from Bangalore, India → Berlin, Germany for a full-time job</dd><dt>DEVICE :</dt><dd>Mobile-first, expects quick, clear actions</dd></dl></div>
       <div class="traits">
-        <div class="trait"><b>Behaviours</b><ul><li>Researches heavily but gets overwhelmed quickly.</li><li>Saves links, screenshots, and PDFs across devices.</li><li>Relies on WhatsApp groups / Reddit / friends for reassurance.</li><li>Checks tasks multiple times due to fear of mistakes.</li></ul></div>
-        <div class="trait"><b>Feelings</b><ul><li>Excited about career growth and living abroad.</li><li>Anxious, uncertain, mentally overloaded.</li><li>Wants reassurance that she’s “doing things right”.</li></ul></div>
-        <div class="trait"><b>Goals</b><ul><li>Complete all relocation tasks correctly and on time.</li><li>Avoid fines, legal trouble, or missing mandatory steps.</li><li>Feel in control instead of anxious during the move.</li><li>Settle into life in Germany as quickly as possible.</li></ul></div>
-        <div class="trait"><b>Pain Points</b><ul><li>Doesn’t know what to do first.</li><li>Overwhelmed by German bureaucracy &amp; unfamiliar terminology.</li><li>Information is fragmented across blogs, expat forums, and government sites</li><li>Afraid of missing time-sensitive legal steps.</li><li>Unsure which documents are critical vs optional.</li></ul></div>
+        <div class="trait"><b>Goals</b><ul><li>Complete every relocation task correctly and on time.</li><li>Avoid fines, legal trouble or missed mandatory steps.</li><li>Settle into life in Germany quickly.</li></ul></div>
+        <div class="trait"><b>Pain Points</b><ul><li>Doesn’t know what to do first.</li><li>Overwhelmed by unfamiliar bureaucracy and terminology.</li><li>Information is fragmented across blogs, forums and government sites.</li><li>Unsure which documents are critical vs optional.</li></ul></div>
       </div>
     </div>
 
-    <h2>Information Architecture</h2>
-    <p>The information architecture is designed to reduce cognitive overload by organizing relocation tasks into clear phases, while supporting users with documents, community knowledge, and contextual AI assistance.</p>
-    {fig("ia.avif", "Settle sitemap: Onboarding, Home, Documents, Overflow Menu, Community, Calendar and AI Assistant with their sub-screens")}
-
-    <h2>Design &amp; Prototyping</h2>
-    <h3>Lo-Fi Ideation</h3>
-    <p>The lo-fi ideation phase for Settle focused on defining a core structure that reduces cognitive load during the stressful relocation process. By mapping out a 'milestone-based' architecture, I visualized how to break down a complex international move into manageable, bite-sized steps before moving into high-fidelity details</p>
-    {fig("lofi-ideation.avif", "Ideation board: reference imagery, grey-box wireframes, logo sketches and paper sketches of the main screens", "sharp")}
-    <h3>Lo-Fi Designs</h3>
-    {fig("lofi-designs.avif", "Low-fidelity wireframes and annotated paper sketches of onboarding, tasks, documents and community screens", "sharp")}
-    <h3>Mood-board</h3>
-    <div class="mood"><img src="assets/settle/moodboard.avif" alt="Mood-board collage of moving boxes, a house mark, a map pin, a visa form and greens" loading="lazy"><p>I chose a cohesive palette of ombre and layered greens—ranging from deep forest to light sage—to transform the high-stress, "red-alert" chaos of relocation into a guided journey of growth and stability. By blending these tones, the UI moves away from the clinical feel of a standard checklist and instead mimics the natural transition of "planting roots" in a new home.</p></div>
-
-    <h2 id="hifi">Design System &amp; Hi-Fi Designs</h2>
-    {fig("hifi.avif", "Design system: colour palette of layered greens, SF Pro typography, an eight-step grey scale, and the component library of buttons, inputs, cards, chips, menus and navigation", "sharp")}
-
-    <h3 class="band-title">Easy Onboarding</h3>
-    <p>The sign-up process is frictionless, allowing entry via email or phone. Immediately after, users complete a targeted questionnaire to capture essential move details. This input is instantly processed to generate a personalized relocation roadmap, converting all the requirements into a tailored set of actionable tasks.</p>
-    {fig("onboarding.avif", "Onboarding flow: welcome screen, account creation, and a short questionnaire about location, move date and purpose")}
-
-    <h3 class="band-title">The App Experience</h3>
-    <p>To prevent cognitive overload, the roadmap is divided into logical phases. Users see only immediate, actionable items rather than a daunting long list, while retaining the flexibility to add or edit tasks. We also have a dedicated, encrypted hub that allows users to upload, review, and store sensitive paperwork, ensuring critical documents are always accessible. Additionally, we addressed social isolation through a Community Hub—a space to connect with peers. Finally, an integrated Calendar visualizes the timeline, keeping users aligned with their move date.</p>
-    {fig("app-experience.avif", "Six core screens: phased task list, create new task, documents hub, community, empty calendar and the Sia AI assistant")}
-
-    <h3 class="band-title">The UX through the journey</h3>
-    <p>To prevent cognitive overload, the roadmap is divided into logical phases. Users see only immediate, actionable items rather than a daunting long list, while retaining the flexibility to add or edit tasks. We also have a dedicated, encrypted hub allows users to upload, review, and store sensitive paperwork, ensuring critical documents are always accessible. Additionally, we addressed social isolation through a Community Hub—a space to connect with peers. Finally, an integrated Calendar visualizes the timeline, keeping users aligned with their move date.</p>
-    {fig("journey-40.avif", "App experience when the user is 40% through: phase 2 tasks, uploaded and pending documents, and the journey timeline")}
-
-    <h3 class="band-title">Feedback &amp; Error states</h3>
-    {fig("feedback.avif", "Profile, offline status, loading state and error state screens")}
-
-    <h2>Accessibility Considerations</h2>
-    <div class="a11y">
-      <div><h4>Cognitive &amp; Visual Accessibility</h4><div class="panel">
-        <p><em>Contrast &amp; Color:</em> The primary brand palette maintains a contrast ratio of 3.7:1. This specifically meets WCAG standards for large text and graphical components, ensuring key UI elements remain legible.</p>
-        <p><em>Readability:</em> Used high-legibility sans-serif fonts with generous line spacing to prevent "visual noise" during high-stress relocation tasks.</p></div></div>
-      <div><h4>Interactive &amp; Motor Accessibility</h4><div class="panel">
-        <p><em>Touch Targets:</em> All interactive elements (buttons, checkboxes, and tabs) maintain a minimum size of 44x44 dp for easy tapping while on the move.</p>
-        <p><em>Error Recovery:</em> Error states provide explicit instructions on how to fix issues, reducing frustration for users with motor or cognitive impairments.</p></div></div>
-      <div><h4>Assistive Technology (Screen Readers)</h4><div class="panel">
-        <p><em>Semantic Hierarchy:</em> Organized the app's hierarchy with clear headings so screen readers can easily phrase the relocation roadmap by milestones.</p>
-        <p><em>Live Regions:</em> Progress bars and document icons include descriptive labels (e.g., "Relocation 40% Complete") to provide context to visually impaired users beyond just the visual graphics.</p></div></div>
-      <div><h4>Linguistic &amp; Inclusive Design</h4><div class="panel">
-        <p><em>Plain Language:</em> Translated complex legal and bureaucratic terms into simple, actionable language to support non-native speakers and users under high stress.</p>
-        <p><em>Contextual Help:</em> Integrated an AI assistant (Sia) to provide immediate, simplified explanations for difficult document requirements, ensuring the app is accessible to all digital literacy levels.</p></div></div>
-    </div>
-
-    <h2>Prototypes</h2>
-    <div class="protos">
-      <img src="assets/settle/proto-tasks.jpg" alt="Settle home screen with the phased relocation task list" loading="lazy">
-      <div class="bubbles"><div class="bubble l">Settle: Reimagining the International Relocation Experience.</div><div class="bubble r">UX for Momentum: Visualizing the "Mid-Move" State.</div></div>
-      <img src="assets/settle/proto-community.jpg" alt="Settle community screen with dining, events and discussions" loading="lazy">
-    </div>
-    <a class="jump" href="https://www.figma.com/proto/tPsz1kYWrE2gMf47X8u1kt/Portfolio?node-id=61-44" target="_blank" rel="noopener"><span>Open the Figma prototype</span>{ARROW_NE}</a>
-
-    <h2>Key Takeaways</h2>
+    {h2("06", "Prioritisation &amp; MVP Scope", "Each MVP feature maps to a validated pain point.")}
+    {table(["Feature", "Pain point it solves", "Priority", "Rationale"], [["Personalised, phased task plan", "Task sequencing, cognitive overload", "P0", "The core job: tell the user what to do next, in the right order."], ["Document hub with review", "Asset management", "P0", "Missing documents cause the costliest failures (missed appointments, rejected visas)."], ["AI assistant (Sia)", "The verification loop", "P0", "Directly attacks the 5+ hours/week spent cross-checking information."], ["Community hub", "Social displacement", "P1", "Real need, but the logistics must work first; ships as a lighter v1."]])}
+    {label("Priority labels are my ranking of the four MVP features; all four are in the MVP.")}
+    <h3>Product requirements</h3>
     <ul>
-      <li>Designing for journeys is more effective than designing for features. This project reinforced the importance of structuring products around user progress and mental models, rather than isolated features. Organizing the app into relocation phases significantly reduced cognitive load and improved clarity.</li>
-      <li>Information architecture plays a critical role in reducing anxiety. Relocation is an emotionally stressful experience. A well-thought-out IA can act as a reassurance mechanism, showing users what to focus on now and what can wait.</li>
-      <li>Contextual visibility improves decision-making. Surfacing tasks, documents, and guidance based on the user’s current phase made the experience feel personalized and intentional, rather than overwhelming.</li>
-      <li>Support systems are as important as functional tools. Integrating community discussions and an AI assistant highlighted that users need emotional and informational support, not just checklists, during major life transitions.</li>
-      <li>Simplification is a design skill. One of the biggest challenges was distilling a complex system into a clear, high-level IA suitable for a portfolio, without losing the product’s depth or intent.</li>
+      <li>Generate a relocation task list with timelines automatically from a short onboarding questionnaire, and let users edit, delete and track tasks.</li>
+      <li>Let users upload required documents, review them, and clearly flag anything missing.</li>
+      <li>Give users a 24/7 way to clear doubts, reachable from anywhere in the app.</li>
+      <li>Build a sense of belonging with local event listings and discussions, so users feel at home before they arrive.</li>
+    </ul>
+
+    {h2("07", "Where AI Fits", "Two AI features, each aimed at a measured pain point.")}
+    {pillars([("01", "Personalised plan generation", "Answers to a few onboarding questions (origin, destination, move date, purpose) are turned into a tailored, phased roadmap of actionable tasks, instead of a generic checklist."), ("02", "Sia, the AI relocation assistant", "Explains document requirements and bureaucratic terms in plain language, in context, to cut the time users spend verifying information across sites."), ("!", "Guardrails", "Uploaded documents are reviewed and missing items flagged, so users aren’t relying on AI alone for high-stakes, legal steps.")])}
+
+    {h2("08", "The Product")}
+    <p>The roadmap is split into phases so users only see the next actionable items, with a secure document hub, a community space and a calendar that keeps them aligned to their move date.</p>
+    {img("settle/onboarding.avif", "Onboarding: welcome, account creation and a short questionnaire that generates the plan", "Onboarding: a three-question flow generates the personalised plan.")}
+    {img("settle/app-experience.avif", "Core screens: phased task list, create task, documents hub, community, calendar and the AI assistant", "Core MVP: phased tasks, documents, community, calendar and Sia.")}
+    {img("settle/journey-40.avif", "The app when the user is 40% through: phase 2 tasks, documents and journey timeline", "Mid-move: progress, outstanding documents and the timeline when a user is 40% through.")}
+    <a class="jump" href="https://www.figma.com/proto/tPsz1kYWrE2gMf47X8u1kt/Portfolio?node-id=61-44" target="_blank" rel="noopener"><span>Open the clickable prototype</span>{ARROW_NE}</a>
+
+    {h2("09", "Success Metrics")}
+    {label("Proposed metrics for a launch; Settle has not launched.")}
+    {table(["Type", "Metric", "Why it matters"], [["North star", "Relocation tasks completed on time per active mover", "Captures the core promise: a move that happens in the right order, on time."], ["Activation", "Plan generated in the first session", "Users only get value once they have their own roadmap."], ["Engagement", "Weekly active movers; documents uploaded per mover", "Shows Settle has become the place the move is managed."], ["Problem metric", "Self-reported hours a week spent verifying information", "Directly tracks the 5+ hours/week pain found in research."], ["Counter-metric", "Questions escalated or answered wrongly by Sia", "Speed must not come at the cost of trust on legal steps."]])}
+
+    {h2("10", "Key Takeaways")}
+    <ul>
+      <li>Design for the journey, not features. Organising the product around relocation phases mattered more than any single feature, because it answered the user’s real question: what do I do next?</li>
+      <li>Quantify the pain before prioritising. The survey turned “relocation is stressful” into a measurable problem (5+ hours a week verifying information) that the AI assistant could be held to.</li>
+      <li>Find the gap in the market map. Laying out 8 competitors by category made the opportunity obvious: everyone solved a slice, nobody owned the journey.</li>
+      <li>AI needs guardrails in high-stakes flows. For legal and visa steps, AI speeds people up, but review and clear flags keep their trust.</li>
     </ul>
   </div>
 </main>
 ''' + FOOTER
 
 # ------------------------------------------------------------------ TRACKR
-trackr = head("TRACKR — Coaching platform for fitness coaches · Saira Garg", "Case study: TRACKR, a platform where fitness coaches plan workouts, assign them to clients and track progress.") + nav('work') + f'''
+trackr = head("TRACKR — Coaching platform for fitness coaches · Saira Garg", "Product case study: TRACKR, a coaching platform taken from coach interviews and a PRD to a working product and beta.") + nav('work') + f'''
 <main class="case">
   <a class="goback" href="index.html#work">{ARROW_L}<span>GO BACK</span></a>
   <div class="col">
+    <div class="eyebrow">Product case study · Co-founder · 0 → 1</div>
     <h1>TRACKR | Coaching Platform for Fitness Coaches</h1>
     <p class="lede">A shared place for coaches and clients to plan workouts, record sessions and follow progress, replacing the spreadsheet, form and chat stack most coaches run today.</p>
-    <figure class="cover"><div class="browser"><img src="assets/trackr/product.jpg" alt="TRACKR coach overview showing active clients, client follow-ups, sessions logged and adherence, next to the client app logging a bench press set"></div></figure>
-
-    <h2>Project Overview</h2>
-    <p>Problem: Online coaches are capped not by demand but by admin. Every additional client adds hours of formatting plans, chasing check-ins and reconstructing context from chat threads.</p>
-    <p>Role: Co-Founder, Aug 2026 – Present. I defined the product from coach interviews through to a PRD covering positioning, pricing and success metrics, then built the coach web app and the client mobile app using AI tools (Claude Code, OpenAI Codex), going from idea to working product in under 3 months. TRACKR is now being prepared for a beta launch to test and iterate.</p>
+    <figure class="cover"><div class="browser"><img src="assets/trackr/product.jpg" alt="TRACKR coach overview with client follow-ups, sessions logged and adherence, next to the client app logging a bench press set"></div></figure>
+    {meta([("ROLE", "Co-Founder · Product"), ("TIMELINE", "Aug 2026 – Present"), ("STATUS", "Preparing beta launch")])}
+    {tldr([("Problem", "Online coaches are capped by admin, not demand: every new client adds hours of formatting plans, chasing check-ins and digging through chats."), ("What I did", "Interviewed 8 coaches, wrote the PRD (positioning, pricing, metrics, launch gates) and built the coach web app and client mobile app with AI tools."), ("Outcome", "Idea to working product in under 3 months, live at trackrdaily.com and preparing for a beta launch to test and iterate.")])}
     <a class="jump" href="https://trackrdaily.com" target="_blank" rel="noopener"><span>Visit trackrdaily.com</span>{ARROW_NE}</a>
 
-    <h2>At a Glance</h2>
-    <div class="stats">
-      <div class="stat"><b>8</b><span>fitness coaches interviewed to define requirements</span></div>
-      <div class="stat"><b>&lt;3 mo</b><span>from idea to a working product</span></div>
-      <div class="stat"><b>2</b><span>surfaces: coach web workspace and client mobile app</span></div>
-      <div class="stat"><b>870+</b><span>exercises in the built-in library</span></div>
-    </div>
+    {stats([("8", "fitness coaches interviewed"), ("&lt;3 mo", "from idea to working product"), ("2", "surfaces: coach web + client app"), ("870+", "exercises in the library")])}
 
-    <h2>The Problem</h2>
-    <p>A typical online coach operates across four disconnected tools. Nothing connects them, so the coach becomes the integration layer, and that work grows with every client added.</p>
-    <table class="table">
-      <thead><tr><th>Job</th><th>Tool today</th><th>Where it fails</th></tr></thead>
-      <tbody>
-        <tr><td>Deliver the plan</td><td>Spreadsheet</td><td>Unreadable on a phone mid-set; no logging</td></tr>
-        <tr><td>Collect intake and check-ins</td><td>Online form</td><td>Responses sit in a sheet nobody opens</td></tr>
-        <tr><td>Communicate</td><td>Chat app</td><td>Coaching decisions buried in chat history</td></tr>
-        <tr><td>Track progress</td><td>Manual notes</td><td>No trend view; reconstructed from memory</td></tr>
-      </tbody>
-    </table>
-    <p class="caption">On the other side, the client cannot reliably answer two questions: what am I doing today, and am I making progress?</p>
+    {h2("01", "The Problem")}
+    <p>A typical online coach runs their business across four disconnected tools. Nothing connects them, so the coach becomes the integration layer, and that work grows with every client.</p>
+    {table(["Job", "Tool today", "Where it fails"], [["Deliver the plan", "Spreadsheet", "Unreadable on a phone mid-set; no logging"], ["Collect check-ins", "Online form", "Responses sit in a sheet nobody opens"], ["Communicate", "Chat app", "Coaching decisions buried in chat history"], ["Track progress", "Manual notes", "No trend view; rebuilt from memory"]])}
+    <p class="caption">On the other side, the client can’t reliably answer two questions: what am I doing today, and am I making progress?</p>
 
-    <h2>User Research</h2>
-    <p>I interviewed 8 fitness coaches to understand how they plan, deliver and review training today. The clearest finding was that scattered tools cap how many clients a coach can take on. That finding became the spine of the PRD.</p>
-    <h3>Key Insights &amp; Opportunity Areas</h3>
+    {h2("02", "User Research")}
+    <p>I interviewed 8 fitness coaches about how they plan, deliver and review training. The clearest finding: scattered tools cap how many clients a coach can take on. That reframed the product from “an app for coaches” to a measurable goal: raise the number of clients a coach can handle without lowering quality.</p>
     <div class="notes">
-      <div class="note sage"><b>No Unified View</b>Coaches react to whoever messages loudest, not to whoever needs help most.</div>
-      <div class="note slate"><b>Silent Churn</b>A disengaged client stays invisible until they quit, and the coach finds out weeks late.</div>
-      <div class="note clay"><b>Manual Plan Updates</b>One programming change repeated across a full roster costs hours of copy and paste.</div>
-      <div class="note plum"><b>No Trend View</b>Progression decisions are made on recall instead of the client’s logged history.</div>
-      <div class="note gold"><b>Admin Crowds Out Coaching</b>Quality starts to slip once a roster grows past what one person can track by hand.</div>
+      <div class="note sage"><b>No Unified View</b>Coaches react to whoever messages loudest, not whoever needs help most.</div>
+      <div class="note slate"><b>Silent Churn</b>A disengaged client stays invisible until they quit.</div>
+      <div class="note clay"><b>Manual Plan Updates</b>One programming change across a roster costs hours.</div>
+      <div class="note plum"><b>No Trend View</b>Progression decisions are made on recall, not data.</div>
+      <div class="note gold"><b>Admin Crowds Out Coaching</b>Quality slips once a roster outgrows what one person can track.</div>
     </div>
 
-    <h2>Positioning</h2>
-    <p>Most coaching platforms compete on breadth: nutrition, payments, video, wearables, white-labelling. TRACKR competes on depth in the loop a coach and client repeat every single day.</p>
-    <div class="pillars">
-      <div class="pillar"><i>01</i><b>Client-side speed</b>Open, see today’s session, log, done. The client should understand today’s workout in under two seconds.</div>
-      <div class="pillar"><i>02</i><b>One coaching workspace</b>Plan training, manage clients and review progress in one place. Reuse programs across clients.</div>
-      <div class="pillar"><i>03</i><b>Built for teams from day one</b>Every workspace is an org, whether it is one independent coach or a coaching business with several.</div>
-    </div>
+    {h2("03", "Positioning")}
+    <p>Incumbent coaching platforms compete on breadth (payments, video, white-labelling) and mostly price in USD. TRACKR competes on depth in the loop coach and client repeat every day, and on India-first pricing.</p>
+    {pillars([("01", "Client-side speed", "Open, see today’s session, log, done. Target: today’s workout on screen in under 2 seconds."), ("02", "One coaching workspace", "Plan training, manage clients and review progress in one place; reuse programs across clients."), ("03", "Built for teams from day one", "Every workspace is an org, from one independent coach to a coaching business with several.")])}
 
-    <h2>The Solution</h2>
-    <p>Write the plan once, and every client gets their own copy. The coach creates a plan, shares it and sees how training is going; the client opens the app and knows exactly what to do next.</p>
-    <ul>
-      <li>Plan training: build programs with exercises, sets, reps and rest times, reuse templates and choose a start date for each client.</li>
-      <li>Follow each workout: clients see their assigned sessions, view exercise demonstrations and record their sets in the client app.</li>
-      <li>Review progress: completed sessions and workout history help the coach decide what comes next.</li>
-      <li>Know who needs you: a follow-up list puts the clients who need attention first.</li>
-    </ul>
+    {h2("04", "Scope: What We Said No To")}
+    <p>A small team ships by choosing. These were explicitly left out of v1, each with a reason, so the core loop could be excellent.</p>
+    {table(["Out of scope for v1", "Why"], [["Sales CRM and discovery calls", "A different buyer moment; TRACKR starts after coach and client agree to work together."], ["Video calling", "Meet and Zoom work fine; no way to differentiate."], ["Open-ended chat inbox", "Rebuilding WhatsApp with fewer features; feedback is tied to sessions instead."], ["Payments and accounting", "Large compliance surface for unclear v1 value."], ["White-labelling", "The incumbents’ battleground; expensive and not our edge."]])}
+
+    {h2("05", "The Solution")}
+    <p>Write the plan once, and every client gets their own copy.</p>
+    {pillars([("Plan", "Program builder", "Exercises, sets, reps and rest; reusable templates and a start date per client."), ("Train", "Client app", "Today’s session first, exercise demos and set-by-set logging."), ("Review", "Follow-up list", "History and a ranked list that puts the clients who need attention first.")])}
     <h3>What it replaces</h3>
     <div class="replace">
-      <div><s>Copying last week’s spreadsheet for every client</s><i>→</i><span>Assign a program once. Each client gets their own copy, week after week.</span></div>
-      <div><s>Asking “did you train today?” in a chat</s><i>→</i><span>Clients log every set as they go, and the coach sees it the same day.</span></div>
+      <div><s>Copying last week’s spreadsheet for every client</s><i>→</i><span>Assign a program once; each client gets their own copy.</span></div>
+      <div><s>Asking “did you train today?” in a chat</s><i>→</i><span>Clients log every set, and the coach sees it the same day.</span></div>
       <div><s>Scrolling threads to find who’s slipping</s><i>→</i><span>A follow-up list puts the clients who need you first.</span></div>
     </div>
 
-    <h2>Product Architecture</h2>
-    <p>Two surfaces share one backend. Coaches work on the web, where program building and roster review are comfortable at a desk and still usable on a phone browser between sessions. Clients train in a mobile app built for the gym floor, where speed matters more than features.</p>
-    <div class="pillars">
-      <div class="pillar"><i>Coach</i><b>Web workspace</b>Overview, clients, programs and the exercise library. One coach surface instead of two.</div>
-      <div class="pillar"><i>Client</i><b>Mobile app</b>Today’s session first, set-by-set logging and workout history.</div>
-      <div class="pillar"><i>Org</i><b>Roles and access</b>Coach, Admin and Super-user roles, with each coach seeing only their own clients.</div>
-    </div>
+    {h2("06", "Pricing &amp; Business Model")}
+    <p>Coaches already price per client, so TRACKR does too, and it gets cheaper per client as the roster grows. That rewards exactly the behaviour we want: coaches taking on more clients.</p>
+    {table(["Roster size", "Price per active client / month"], [["Up to 25 clients", "₹300"], ["Up to 50 clients", "₹200"], ["Up to 100 clients", "₹150"], ["Up to 250 clients", "₹100"], ["250+", "Custom"]])}
+    <p class="caption">Free during early access; billed monthly in rupees with GST invoices once billing launches. Only active clients count toward the bill.</p>
 
-    <h2>Success Metrics</h2>
-    <p>The north-star metric is weekly logged sessions per active client. It captures both sides of the product: the coach published something worth doing, and the client did it.</p>
-    <table class="table">
-      <thead><tr><th>Layer</th><th>Metric</th><th>How it is measured</th></tr></thead>
-      <tbody>
-        <tr><td>Activation</td><td>Workspace activated</td><td>At least one client logs at least one session</td></tr>
-        <tr><td>Engagement</td><td>Weekly adherence</td><td>Sessions logged ÷ sessions assigned</td></tr>
-        <tr><td>Retention</td><td>Coach week-4 retention</td><td>Coach still active in week 4</td></tr>
-        <tr><td>Leverage</td><td>Clients per coach</td><td>Median, month 3 vs month 1</td></tr>
-        <tr><td>Performance</td><td>Time to today’s workout</td><td>Under 2 seconds on a cold start</td></tr>
-      </tbody>
-    </table>
+    {h2("07", "Success Metrics")}
+    <p>North-star metric: <b>weekly logged sessions per active client</b>. It captures both sides: the coach published something worth doing, and the client did it.</p>
+    {table(["Layer", "Metric", "How it’s measured"], [["Activation", "Workspace activated", "At least one client logs at least one session"], ["Engagement", "Weekly adherence", "Sessions logged ÷ sessions assigned"], ["Retention", "Coach week-4 retention", "Coach still active in week 4"], ["Leverage", "Clients per coach", "Median, month 3 vs month 1"], ["Performance", "Time to today’s workout", "Under 2 seconds on a cold start"]])}
 
-    <h2>Building with AI</h2>
-    <p>TRACKR is built with AI coding tools. I work as the product owner: writing the requirements, reviewing flows in the running product, and directing Claude Code and OpenAI Codex through the coach web app and the client mobile app. That took TRACKR from idea to a working product in under 3 months.</p>
+    {h2("08", "Launch Plan", "Each phase has a gate it must pass before the next one starts.")}
+    {table(["Phase", "Scope", "Gate to move on"], [["Alpha", "5 design-partner coaches; programs, assignment, logging, history", "5 coaches run real clients for 2 weeks with no spreadsheet"], ["Beta (next)", "25 workspaces; check-ins, feedback, follow-ups, notifications, team directories", "≥65% adherence sustained for 4 weeks; ≥50% coach week-4 retention"], ["General availability", "Bulk import, team analytics, billing", "50 paying workspaces"]])}
 
-    <h2>Key Takeaways</h2>
+    {h2("09", "Building with AI")}
+    <p>I own the product and build it with AI coding tools: writing requirements, reviewing flows in the running product, and directing Claude Code and OpenAI Codex across the coach web app and the client mobile app. That compressed idea-to-working-product into under 3 months.</p>
+
+    {h2("10", "Key Takeaways")}
     <ul>
-      <li>Depth beats breadth early on. Choosing the daily coach and client loop over a long feature list kept the product small enough to finish and sharp enough to explain.</li>
-      <li>Interviews should change the plan. Talking to coaches moved the problem statement from "coaches need an app" to "scattered tools cap client capacity", which is a problem with a measurable outcome.</li>
-      <li>Write the metric before the feature. Defining adherence and retention up front made it easier to say no to work that would not move them.</li>
-      <li>AI tools shift the bottleneck to product judgement. When building is fast, the hard part becomes knowing precisely what to ask for and noticing when the result is wrong.</li>
+      <li>Interviews should change the plan. Coach conversations moved the problem from “coaches need an app” to “scattered tools cap client capacity”, which has a measurable outcome.</li>
+      <li>Depth beats breadth early on. Saying no to payments, video and chat kept the product small enough to ship and sharp enough to explain.</li>
+      <li>Write the metric and the gate before the feature. Adherence and retention targets make it easy to decide what not to build next.</li>
+      <li>When building is fast, product judgement is the bottleneck. AI tools shift the hard part to knowing exactly what to ask for and noticing when the result is wrong.</li>
     </ul>
   </div>
 </main>
 ''' + FOOTER
 
-
 # ------------------------------------------------------------------ MAINSTREET
-def mimg(src, alt):
-    return f'<img src="assets/mainstreet/{src}" alt="{alt}" loading="lazy">'
-def hifi(k, title, text, src):
-    return f'<div class="hifi"><div class="shot">{mimg(src, title)}</div><div><div class="k">{k} · HI-FI</div><h3>{title}</h3><p>{text}</p></div></div>'
-def tool(name, kind, worked, gaps, shots):
-    w=''.join(f'<li>{x}</li>' for x in worked); g=''.join(f'<li>{x}</li>' for x in gaps)
-    im=''.join(mimg(a,b) for a,b in shots)
-    return f'<div class="tool"><div><h3>{name}</h3><div class="kind">{kind}</div><h5>WHAT WORKED</h5><ul>{w}</ul><h5 class="gap">GAPS</h5><ul>{g}</ul></div><div class="shots">{im}</div></div>'
-def h2(num, title, sub=''):
-    t = f'<h2 class="tight"><span class="num">{num}</span>{title}</h2>' if sub else f'<h2><span class="num">{num}</span>{title}</h2>'
-    return t + (f'<p class="sub">{sub}</p>' if sub else '')
-
-mainstreet = head("MainStreet — AI-curated local discovery · Saira Garg", "Case study: MainStreet, an AI-curated, journey-based local discovery app for busy people in Swiss cities.") + nav('work') + f"""
+mainstreet = head("MainStreet — AI-curated local discovery · Saira Garg", "Product case study: MainStreet, an AI-curated, route-aware local discovery app for busy people in Swiss cities.") + nav('work') + f'''
 <main class="case">
   <a class="goback" href="index.html#work">{ARROW_L}<span>GO BACK</span></a>
   <div class="col">
-    <div class="eyebrow">Case study · Personal project · Built with AI workflows</div>
-    <h1>MainStreet. AI-curated local discovery, designed with AI workflows.</h1>
-    <p class="lede">A product design project exploring how AI can turn the scattered ritual of finding a good local spot — Google Maps for ratings, Instagram for vibe, TikTok for food, friends for a sanity check — into a single, predictive, journey-based discovery feed for busy people in Swiss cities.</p>
-    <div class="grid4 cover4">{mimg("hifi-new-1.jpeg","Discovery screen")}{mimg("hifi-new-2.jpeg","Pattern detected screen")}{mimg("hifi-new-4.jpeg","Unified location dropdown")}{mimg("hifi-new-5.jpeg","Bottom sheet list view")}</div>
-    <div class="origin">MainStreet started close to home. My sister recently moved to Zürich, and when she told me how hard it was to find places that actually suited her in a new city, hopping between four apps and still ending up somewhere average, I came forward with this idea: an app that learns the routes you already take and curates local spots along them.</div>
-    <a class="jump" href="#hifi-mocks"><span>Jump to hi-fi mocks</span>{ARROW_D}</a>
-    <div class="meta"><div><span>ROLE</span><b>Product &amp; Design</b></div><div><span>TYPE</span><b>Consumer · Discovery</b></div><div><span>PLATFORM</span><b>iOS · Android</b></div></div>
+    <div class="eyebrow">Product case study · AI/ML · Two-sided marketplace</div>
+    <h1>MainStreet. AI-curated local discovery for busy people in Swiss cities.</h1>
+    <p class="lede">A predictive, route-aware discovery feed that replaces the ritual of checking Google Maps for ratings, Instagram for vibe, TikTok for food and friends for a sanity check.</p>
+    <div class="grid4 cover4"><img src="assets/mainstreet/hifi-new-1.jpeg" alt="Discovery screen with a map and match scores"><img src="assets/mainstreet/hifi-new-2.jpeg" alt="Pattern detected on a repeated route"><img src="assets/mainstreet/hifi-new-4.jpeg" alt="Single location menu with learned routes"><img src="assets/mainstreet/hifi-new-5.jpeg" alt="List view of top matches nearby"></div>
+    {meta([("ROLE", "Product Manager · Personal project"), ("MARKET", "Zürich, Geneva and similar cities"), ("PLATFORM", "iOS · Android")])}
+    {tldr([("Problem", "Finding a good local spot takes four apps and still often ends in a mediocre experience, while independent businesses can’t reach the people walking past them."), ("What I did", "Defined the problem, users and scope, designed an AI matching model around daily routes, tested 3 concepts quickly with AI prototyping tools, and set success metrics and an experiment plan."), ("Outcome", "A mobile MVP concept with route-aware AI recommendations, separate flows for users and businesses, and a plan to test it.")])}
 
-    {h2("01", "Design Foundations")}
-    <p>Before starting any design, I focus on four things that keep the work honest and directional:</p>
-    <div class="grid4">
-      <div class="pillar"><i>a</i><b>Problem Statement</b>The reason we're building — the friction we're removing from real people's days.</div>
-      <div class="pillar"><i>b</i><b>Target Audience</b>Who we're building for, in enough detail to make real trade-offs.</div>
-      <div class="pillar"><i>c</i><b>Surface</b>Where the experience lives, and where it explicitly does not.</div>
-      <div class="pillar"><i>d</i><b>Success Metrics</b>How we'll know it's working — for users and for the business.</div>
-    </div>
+    {h2("01", "Why I Built This")}
+    <div class="origin">My sister recently moved to Zürich. When she told me how hard it was to find places that actually suited her in a new city, hopping between four apps and still ending up somewhere average, I came forward with this idea: an app that learns the routes you already take and curates local spots along them.</div>
 
-    {h2("02", "Problem Statement")}
-    <p>Finding the right local business is currently a mess — or doesn't happen at all. People bounce between Google Maps for ratings, Instagram to check the vibe, TikTok to see if the food looks good, and friends for recommendations — and still end up at places that don't match what they actually want. On the other side, local business owners struggle to reach their ideal customers and rarely connect with the audience they were built for.</p>
+    {h2("02", "The Problem")}
+    {pillars([("U", "For users", "People bounce between Google Maps for ratings, Instagram for the vibe, TikTok for the food and friends for recommendations, and still end up at places that don’t match what they want."), ("B", "For local businesses", "Independent owners struggle to reach their ideal customers and rarely connect with the audience they were built for."), ("?", "The gap", "Generic review platforms rank by average stars, not by fit for this person, at this moment, on this route.")])}
 
-    {h2("03", "Target Audience")}
+    {h2("03", "Target Users")}
     <div class="grid3">
-      <div class="pillar"><b>DEMOGRAPHICS</b>Young professionals, expats and students (Ages 22–36) living in urban Swiss areas — Zürich, Geneva, and similar.</div>
-      <div class="pillar"><b>CHARACTERISTICS</b>Tech-savvy, values supporting local and independent businesses over major chains, has specific dietary or lifestyle preferences (vegan, specialty coffee, vintage fashion, etc.).</div>
-      <div class="pillar"><b>PAIN POINTS</b>Limited free time. They hate wasting a weekend meal or an afternoon off on a mediocre experience because a generic review platform gave it 4.5 stars. They want a curated ‘vibe' that aligns with their lifestyle without spending an hour researching it.</div>
+      <div class="pillar"><b>WHO</b>Young professionals, expats and students aged 22–36 in urban Swiss areas such as Zürich and Geneva.</div>
+      <div class="pillar"><b>WHAT THEY VALUE</b>Supporting local, independent businesses over chains; specific tastes such as vegan food, specialty coffee or vintage fashion.</div>
+      <div class="pillar"><b>CORE PAIN</b>Limited free time. They hate losing a weekend meal to a place a generic platform rated 4.5 stars, and won’t spend an hour researching.</div>
     </div>
 
-    {h2("04", "Surface")}
-    <p>Mobile apps (iOS &amp; Android) are in scope. Web is explicitly out of scope — the core value depends on live location, passive route learning and glanceable, thumb-first interactions that only make sense on a phone in the user's hand.</p>
+    {h2("04", "Product Hypothesis")}
+    <div class="origin">If MainStreet learns where users already go and what they like, it can surface one place that fits along their route faster and more reliably than four apps, and give local businesses a direct line to the people walking past their door.</div>
+    {label("Monetisation to test: businesses already join through their own onboarding flow, so a paid visibility tier for local businesses is the first pricing hypothesis.")}
 
-    {h2("05", "Success Metrics")}
-    <div class="grid5">
-      <div class="stat"><b>TTV</b><span>Time-to-Value</span></div><div class="stat"><b>FCR</b><span>Feed Conversion Rate</span></div><div class="stat"><b>IMP</b><span>Implicit Feedback</span></div><div class="stat"><b>EXP</b><span>Explicit Feedback</span></div><div class="stat"><b>WAU</b><span>Weekly Active Users</span></div>
+    {h2("05", "Scope Decisions")}
+    {table(["Decision", "In / out", "Reasoning"], [["Native mobile apps (iOS &amp; Android)", "In", "The value depends on live location and passive route learning."], ["Web app", "Out", "No live location or route learning; a phone in hand is the real context of use."], ["Separate user and business onboarding", "In", "Both sides of the marketplace need to be onboarded from day one."], ["Pre-permission location screen", "In", "Route learning needs location access, so the value exchange is explained before the OS prompt to protect opt-in rates."]])}
+
+    {h2("06", "How the AI Works", "Ranking places by fit for this person, on this route, right now.")}
+    {pillars([("in", "Signals", "Taste picks from onboarding, current location, repeated routes, implicit feedback (taps, saves, visits) and explicit feedback (ratings, “not my vibe”)."), ("ml", "Model output", "A per-user match score (e.g. “95% Match”), walk time, and short vibe tags such as “Cozy · Fine dine” that explain why a place was picked."), ("↻", "Route detection", "After repeated trips, e.g. Wiedikon → Zürich HB, the app detects the pattern and curates matches along that path without the user configuring anything.")], 'pillars')}
+    <p>Trust is a product requirement, not a nice-to-have: the “Pattern detected” banner appears once, then the app curates quietly. A utility that gets noisy about tracking loses users.</p>
+
+    {h2("07", "Testing Concepts Fast with AI Tools")}
+    <p>Instead of weeks of manual mock-ups, I generated three concepts with AI prototyping tools in days, then used their gaps to make the key product calls.</p>
+    {table(["Tool tested", "What it showed", "Decision it led to"], [["Lovable", "Match scores alongside the map work; splitting Home and Map into two tabs adds friction", "One map-first home screen, no separate map tab"], ["Figma Make", "No list to browse suggestions and no signal of where the search is happening", "Always show location context; add a list alternative"], ["Google Stitch", "One question per onboarding screen keeps effort low; no way to apply or see learned routes", "Single-question onboarding; one menu for current location and learned routes"]])}
+
+    {h2("08", "The Product")}
+    <div class="grid4 cover4">
+      <figure><img src="assets/mainstreet/hifi-new-1.jpeg" alt="Discovery near current location" loading="lazy"><figcaption>Discover nearby, with quick filters</figcaption></figure>
+      <figure><img src="assets/mainstreet/hifi-new-2.jpeg" alt="Pattern detected on a new route" loading="lazy"><figcaption>Route pattern detected</figcaption></figure>
+      <figure><img src="assets/mainstreet/hifi-new-3.jpeg" alt="Learned commute with no banner" loading="lazy"><figcaption>Learned commute, quiet curation</figcaption></figure>
+      <figure><img src="assets/mainstreet/hifi-new-4.jpeg" alt="Single location menu" loading="lazy"><figcaption>One menu for location and routes</figcaption></figure>
     </div>
 
-    {h2("06", "AI Tools · Prototyping", "Where AI accelerated the visual head start, and where it fell short.")}
-    <p>To kick off the visual process, I used AI generation tools to get a rapid head start. They provided a great baseline and surfaced ideas much faster than manual competitive analysis. But they couldn't be used as-is — each had core UX gaps that shaped the direction of the real design.</p>
-    {tool("Lovable", "MAP + CAROUSEL EXPLORATION", ["Decent carousel showing matching scores alongside the map"], ["Splits ‘Home' and ‘Map' into two tabs — introduces unnecessary friction", "Routing logic is flawed; unclear how the UI handles a plain ‘current location' state with no route", "Bright red on the map reads as traffic / warning — wrong signal for a premium, curated vibe"], [("ai-lovable.png", "Lovable exploration for MainStreet")])}
-    {tool("Figma Make", "RAPID LAYOUT EXPLORATION", ["Fast baseline styling", "Surfaces card and grid ideas quickly"], ["No dedicated list view to actually browse personalized suggestions", "Context is broken — no clear signal of where the search is happening", "No way to add a route or differentiate it from a standard neighborhood search"], [("ai-figma-make.png", "Figma Make exploration for MainStreet")])}
-    {tool("Google Stitch", "ONBOARDING &amp; DISCOVERY STRUCTURE", ["Strong onboarding baseline — pictorial choices, one question per page", "Confirms the low-cognitive-load direction I was already thinking about"], ["‘location_on' header is vague and unhelpful", "No system for manually applying routes or surfacing learned ones", "Separates ‘Matches for You' from the Map — the exact split I chose to solve"], [("ai-google-stitch.png", "Google Stitch exploration 1 for MainStreet"), ("ai-google-stitch-2.png", "Google Stitch exploration 2 for MainStreet")])}
+    {h2("09", "Experiment Plan", "Two ways to show results, one test to choose.")}
+    {label("Planned experiment; not yet run.")}
+    {table(["", "Variant A: focused wheel", "Variant B: list view"], [["Idea", "One recommendation at a time, for a quick, focused decision", "Compare 4–5 top places at once, like Google Maps"], ["Hypothesis", "Higher conversion for time-poor users", "Faster decisions for users who like to compare"], ["Primary metric", "Feed conversion rate", "Feed conversion rate"], ["Guardrail", "Time-to-value", "Time-to-value"]])}
 
-    {h2("07", "Wireframing", "Back to paper, to solve the structural flaws.")}
-    <p>After identifying the structural flaws in the AI explorations, I stepped back and moved to paper. Onboarding was designed around a single question per screen with heavy use of visual graphics to drastically reduce cognitive load.</p>
-    <p>I also prioritised a dedicated ‘pre-permission' location screen. Because the app's value depends on tracking daily routes, it's critical to set the right tone and clearly explain the value exchange before triggering the OS-level permission prompt.</p>
-    <p>For the home screen, the challenge was seamlessly combining four complex elements: map interactions, routing logic, current location, and a personalised list of places with matching scores. I mapped out how users would intuitively add routes or apply quick filters like ‘Coffee' or ‘Dinner' without losing context.</p>
-    <div class="shots3">
-      <figure>{mimg("wireframe-onboarding.png", "Paper wireframe — Splash, onboarding and pre-permission")}<figcaption>SPLASH · ONBOARDING · PRE-PERMISSION</figcaption></figure>
-      <figure>{mimg("wireframe-home.png", "Paper wireframe — Home screen trials")}<figcaption>HOME SCREEN TRIALS</figcaption></figure>
-      <figure>{mimg("wireframe-location.png", "Paper wireframe — Location sheet, nearby and nav")}<figcaption>LOCATION SHEET · NEARBY · NAV</figcaption></figure>
-    </div>
+    {h2("10", "Success Metrics")}
+    {table(["Metric", "Definition", "Why"], [["Time-to-value (TTV)", "Time from install to the first saved or visited place", "Proves the app delivers before users give up"], ["Feed conversion rate (FCR)", "Share of feed sessions that lead to directions, a save or a visit", "The core test of recommendation quality"], ["Implicit feedback", "Taps, saves, dwell and visits per user", "Trains the model and shows real interest"], ["Explicit feedback", "Ratings and “not my vibe” dismissals", "Fast correction signal for bad matches"], ["Weekly active users (WAU)", "Users opening the app at least once a week", "Habit: MainStreet becomes the default way to choose"]])}
 
-    {h2("08", "Mocks for Onboarding", "One question per screen, for both user and business flows.")}
-    <p>The onboarding screens are designed to hold one question per page — decreasing cognitive load and minimising time spent on any single screen. Separate onboarding flows exist for the business owner and the everyday user.</p>
-    <div class="shots2">
-      <figure>{mimg("onboarding-1.png", "Splash screen")}<figcaption>SPLASH SCREEN</figcaption></figure>
-      <figure>{mimg("onboarding-2.png", "Onboarding — user and business")}<figcaption>ONBOARDING — USER &amp; BUSINESS</figcaption></figure>
-      <figure>{mimg("onboarding-3.png", "Business onboarding")}<figcaption>BUSINESS ONBOARDING</figcaption></figure>
-      <figure>{mimg("onboarding-4.png", "User onboarding")}<figcaption>USER ONBOARDING</figcaption></figure>
-    </div>
+    {h2("11", "Key Product Decisions")}
+    {why([("One control for “where”", "Current location, learned routes and route editing live in one top-left menu. Where the app looks is always one tap away, and the feed stays focused on what is there."), ("Show the pattern once", "The route banner appears only on first detection. Proving the intelligence once builds trust; repeating it erodes it."), ("Lead with “why this is for me”", "Cards open with the match percentage and vibe tags before distance, because fit is the reason to trust a recommendation."), ("Two sides from day one", "Businesses get their own onboarding (“Reach commuters near my door”) so supply grows alongside demand.")])}
 
-    <div id="hifi-mocks"></div>
-    {h2("09", "Hi-fi Mocks", "The active ‘Exploring' state — before routing is applied.")}
-    <p>From the wireframes, I developed a set of high-fidelity screens that walk through the core loop — from a plain ‘Exploring' state, to passive route detection, to the unified spatial controls that hold it all together.</p>
-    {hifi("01", "Discovery — current location", "The default ‘Exploring' state stays fundamentally map-centric to preserve context, paired with low-friction quick-filter pills — ‘Open Now', ‘Coffee', ‘Dinner' — so users can rapidly narrow criteria without ever opening a separate search menu. The wheel carousel maximises each venue's visual aesthetic: walk time, a Smart Matching Score, and vibe tags like ‘opulent' or ‘cozy' answer <em>is this my vibe?</em> at a single glance.", "hifi-new-1.jpeg")}
-    {hifi("02", "Pattern detected — new route", "MainStreet's true differentiator: predictive, journey-based curation. The system passively recognises a repeated route — Wiedikon → Zurich HB — and surfaces a subtle ‘Pattern Detected' banner, curating the sheet to matches along that path. It proves the intelligence without ever asking the user to configure it.", "hifi-new-2.jpeg")}
-    {hifi("03", "No banner — learned commute", "Once acknowledged, the banner is dismissed and stays hidden for subsequent trips on the same route. Utility apps lose trust the moment they become noisy — showing the pattern once, then quietly curating in the background, is the detail that earns the second visit.", "hifi-new-3.jpeg")}
-    {hifi("04", "Unified location dropdown", "The most important structural decision: all spatial controls live inside a single top-left menu — switching to a learned ‘Morning Commute', editing a saved route, or jumping to a new neighborhood. The top-left universally controls <em>where</em> the app is looking, so the bottom sheet is free to focus purely on <em>what</em> is there.", "hifi-new-4.jpeg")}
-
-    {h2("10", "Alternative — Bottom Sheet List", "Optimised for rapid scanning, closer to established habits.")}
-    <div class="hifi"><div class="shot">{mimg("hifi-new-5.jpeg", "Alternative — bottom sheet list view")}</div><div><p>I also built an alternative mock using a standard bottom-sheet list. The wheel is optimised for a ‘focused decision' model — one premium recommendation at a time.</p><p>This alternative is designed for users who prioritise rapid scanning: it lets them cross-compare 4–5 highly-rated places simultaneously and leans on established mental models from apps like Google Maps.</p></div></div>
-
-    {h2("11", "Design Decisions — the Whys", "Each decision maps back to trust, focus or premium feel.")}
-    <div class="why">
-      <div><b>The Unified Location Dropdown</b><span>All spatial controls — current location, learned routes, route editing — live inside a single top-left menu. The top-left corner dictates where the app is looking; the feed dictates what is there. It prevents routing features from getting buried in a Settings or Profile tab and keeps the mental model perfectly clean.</span></div>
-      <div><b>Contextual Header &amp; One-Time Banner</b><span>The ‘Pattern Detected' banner appears only once, on initial route discovery, then hides for subsequent trips. Utility apps lose trust when they get noisy. Showing it once proves the intelligence without becoming annoying.</span></div>
-      <div><b>The Focused Immersive Wheel</b><span>Instead of a dense bottom-sheet list, a rotating wheel elevates one premium recommendation at a time. Highly tactile, differentiated from utilitarian map interfaces, and better suited to a time-poor user making a focused decision. Users swipe to spin and explore other curated options.</span></div>
-      <div><b>The Floating Navigation Bar</b><span>A decoupled, dark floating bar — not an edge-to-edge system tab bar. Maximises immersive map visibility when the sheet is closed, and anchors primary buttons within the thumb zone per Fitts's Law.</span></div>
-      <div><b>Matching Scores &amp; Vibe Tags</b><span>Discovery cards lead with a specific match percentage (e.g. ‘95% Match'), walk time (‘4 mins') and short vibe tags (‘Fine Dine · Cozy', ‘Exclusive · Buffet'). The UI answers ‘Why is this for me?' before ‘How far is it?'.</span></div>
-      <div><b>Color Psychology — Indigo Ascent</b><span>Deliberately avoided red and green. Red reads as traffic / warning on a map; green makes it feel like a GPS clone. A deep blue-purple (indigo) is subtle but instantly signals a premium, curated matchmaking tool.</span></div>
-      <div><b>Accessibility</b><span>48×48px minimum tap targets, WCAG AA contrast, dynamic text sizing, VoiceOver support and color-independent affordances — built in, not bolted on.</span></div>
-    </div>
+    {h2("12", "Next Steps")}
+    <ul>
+      <li>Usability-test the MVP with expats and students in Zürich, starting with people like my sister who moved recently.</li>
+      <li>Run the wheel vs list experiment and pick the default view on feed conversion.</li>
+      <li>Onboard independent businesses in one neighbourhood to test the business side and the paid visibility hypothesis.</li>
+    </ul>
 
     <a class="next" href="settle.html"><div><span>NEXT</span><b>Settle — Relocation &amp; travel planner</b></div>{ARROW_L}</a>
   </div>
 </main>
-""" + FOOTER
+''' + FOOTER
 
 # ------------------------------------------------------------------ ABOUT
 def xp(when, org, role, text):
@@ -515,7 +416,7 @@ about = head("About — Saira Garg", "About Saira Garg — co-founder of TRACKR,
     <div class="wrap">
       <h2>My Approach</h2>
       <div class="split">80% Problem Solver<br>10% Builder - 10% Runner</div>
-      <p>I don’t think of myself as just an engineer or just a product person; I’m a problem solver with a versatile toolkit. I interview users, write the PRD, design the flow in Figma and build the thing with AI tools. Wearing several hats lets me look at a problem from every angle and bring value to both the business and the user.</p>
+      <p>I don’t think of myself as just an engineer or just a product person; I’m a problem solver with a versatile toolkit. I talk to users, size the market, write the PRD, prioritise hard, and work with engineering to ship, measure and iterate. With AI tools I can also build and test ideas myself. Wearing several hats lets me look at a problem from every angle and bring value to both the business and the user.</p>
     </div>
   </section>
 
@@ -528,6 +429,11 @@ about = head("About — Saira Garg", "About Saira Garg — co-founder of TRACKR,
   </section>
 
   <section class="about-block">
+    <h2>More Projects</h2>
+    {xp("AI/ML", "NutriScan", "AI Dietitian", "Built an AI calorie and macro tracker that reads food labels from a photo with Google Gemini’s image model, reaching 92% accuracy and removing manual data entry. <a class=\"t\" href=\"https://github.com/SAIRAGARG/NutriScan\" target=\"_blank\" rel=\"noopener\">GitHub →</a>")}
+  </section>
+
+  <section class="about-block">
     <h2>Leadership &amp; Achievements</h2>
     {xp("Founder", "Run Club, Bathinda", "70+ members", "Founded a community run club and grew it through social media outreach and regular group runs into an active local fitness community.")}
     {xp("Finalist · 2024", "Myntra HackerRamp WeForShe", "Shared Carts", "Designed and prototyped a social shopping feature that lets friends build and shop from one cart together, reaching the finals among thousands of teams.")}
@@ -537,10 +443,11 @@ about = head("About — Saira Garg", "About Saira Garg — co-founder of TRACKR,
 
   <section class="about-block">
     <h2>Skills</h2>
-    {chips("Product", ["Product Strategy", "User Research", "Market Research", "PRDs", "Roadmapping", "Prioritization", "Competitive Analysis", "Pricing", "Go-to-Market", "KPIs", "Agile / Scrum"])}
-    {chips("AI Tools", ["Claude Code", "OpenAI Codex", "Google Gemini API"])}
-    {chips("Design", ["Figma", "Wireframing", "Prototyping", "Usability Testing", "Journey Mapping"])}
+    {chips("Product", ["Product Strategy", "User Research", "Market Research", "PRDs", "Roadmapping", "Prioritization", "Competitive Analysis", "Go-to-Market", "Product Launch", "Agile / Scrum"])}
+    {chips("Data &amp; Business", ["Data Analysis", "KPIs &amp; Metrics", "Business Case", "Pricing", "Positioning"])}
+    {chips("AI", ["Claude Code", "OpenAI Codex", "Google Gemini API", "AI Prototyping"])}
     {chips("Technical", ["Java", "Python", "JavaScript", "React.js", "Spring", "REST APIs", "Git", "JIRA", "Postman"])}
+    {chips("Design", ["Figma", "Prototyping", "Usability Testing"])}
   </section>
 </main>
 ''' + FOOTER

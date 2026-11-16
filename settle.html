@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Settle — Relocation & Travel Partner · Saira Garg</title>
-<meta name="description" content="Case study: Settle, a personal relocation assistant that turns the chaos of moving to a new country into a clear, guided process.">
+<meta name="description" content="Product case study: Settle, an AI-assisted relocation app, from market sizing and user research to a prioritised MVP.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
@@ -23,144 +23,81 @@
 <main class="case">
   <a class="goback" href="index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg><span>GO BACK</span></a>
   <div class="col">
+    <div class="eyebrow">Product case study · Discovery to MVP · 8 weeks</div>
     <h1>Settle | Relocation &amp; Travel Partner</h1>
     <p class="lede">A personal relocation assistant that turns the chaos of moving to a new country into a clear, guided, and manageable process.</p>
-    <figure class="cover sharp"><img width="2280" height="1400" src="assets/settle/hero.avif" alt="Settle app screens: sign-up, relocation task plan, documents, community and AI assistant"></figure>
+    <figure class="cover sharp"><img src="assets/settle/hero.avif" alt="Settle app screens: sign-up, relocation task plan, documents, community and AI assistant"></figure>
+    <div class="meta"><div><span>ROLE</span><b>Product owner, end to end</b></div><div><span>TIMELINE</span><b>8-week sprint</b></div><div><span>SCOPE</span><b>Research · Strategy · MVP</b></div></div>
+    <div class="tldr"><div><span>Problem</span><p>Moving abroad means hundreds of fragmented tasks spread across government sites, forums and chats, and no single place tells you what to do next.</p></div><div><span>What I did</span><p>Sized the market, ran interviews and a survey, mapped 8 competitors, prioritised a 4-feature MVP and took it to a clickable prototype.</p></div><div><span>Outcome</span><p>A phased, AI-assisted relocation plan that fills a gap none of the 8 competitors covered: one personal journey from visa to feeling at home.</p></div></div>
 
-    <h2>Project Overview</h2>
-    <p>Problem: International relocation is rarely a seamless transition. It is a complex web of hundreds of fragmented tasks.</p>
-    <p>Role: To address this, I led an 8-week end-to-end design sprint to create Settle, a mobile relocation partner. Grounded in comprehensive user research, the app bridges the gap between travel and residency, organizing the chaos of moving into a clear, manageable roadmap that prioritizes users peace of mind.</p>
-    <a class="jump" href="#hifi"><span>Jump to hi-fi designs</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg></a>
+    <h2><span class="num">01</span>The Problem</h2>
+    <p>International relocation is rarely a seamless transition. It is a complex web of hundreds of fragmented tasks, and the order matters: you often need a bank account to rent a flat, but an address to open the bank account.</p>
+    <p>Existing tools solve isolated pieces (task lists, document storage, B2B relocation services) and leave the individual mover to stitch them together.</p>
 
-    <h2>Relocation Market</h2>
-    <p>Migration is no longer a niche event; it is a global mega trend. According to the 2024 UN World Migration Report, there are approximately 281 million international migrants globally. This number has doubled since 1990 <a class="t" href="https://worldmigrationreport.iom.int/" target="_blank" rel="noopener">[source]</a>. The Organisation for Economic Co-operation and Development reports that over 6 million people <a class="t" href="https://www.oecd.org/en/topics/migration.html" target="_blank" rel="noopener">[source]</a> move permanently to developed countries every year. This excludes the millions of students and temporary "Digital Nomads". People move due to variety of reasons:</p>
-    <ul>
-      <li>70% Economic Opportunity: Skilled workers moving for higher wages in example tech hubs (Berlin, London, SF).</li>
-      <li>20% Education: International students who need visa/housing support before they even graduate.</li>
-      <li>10% Family/Lifestyle: Joining a partner or seeking a better quality of life.</li>
-    </ul>
+    <h2><span class="num">02</span>Market Opportunity</h2>
+    <p>Migration is no longer a niche event. According to the 2024 UN World Migration Report there are roughly 281 million international migrants, a number that has doubled since 1990, and the OECD reports over 6 million people move permanently to developed countries every year, before counting students and digital nomads.</p>
+    <div class="stats"><div class="stat"><b>281M</b><span>international migrants worldwide</span></div><div class="stat"><b>2×</b><span>growth since 1990</span></div><div class="stat"><b>6M+</b><span>permanent moves to OECD countries a year</span></div><div class="stat"><b>70%</b><span>move for economic opportunity</span></div></div>
+    <h3>Segment choice</h3>
+    <table class="table"><thead><tr><th>Segment</th><th>Share of movers</th><th>Decision</th></tr></thead><tbody><tr><td>Skilled workers moving for a job (e.g. Berlin, London, SF)</td><td>~70%</td><td><b>Primary.</b> Largest segment, hard deadlines, high willingness to pay for certainty.</td></tr><tr><td>International students</td><td>~20%</td><td>Secondary. Visa and housing needs overlap with the core plan.</td></tr><tr><td>Family and lifestyle moves</td><td>~10%</td><td>Later. Needs vary too much for a v1 plan.</td></tr></tbody></table>
 
-    <h2>User Research</h2>
-    <p>Our comprehensive research phase was driven by three key objectives: understand relocation challenges, Identify time-sensitive tasks, and learn how people currently organize moves.</p>
-    <h3>Qualitative Research</h3>
-    <p>We conducted 4 user interviews to learn about users’ pain points and preferences and understand their needs and expectations.</p>
-    <h3>Quantitative Research</h3>
-    <div class="survey" role="img" aria-label="Survey results, number of people per difficulty rating from 1 to 5, for four questions"><div class="chart"><h4>How challenging was it to manage and keep track of relocation-related tasks?</h4><div class="plot"><div class="bars"><i data-v="0" style="height:0.0%"></i><i data-v="18" style="height:50.0%"></i><i data-v="8" style="height:22.2%"></i><i data-v="34" style="height:94.4%"></i><i data-v="20" style="height:55.6%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div><div class="chart"><h4>How challenging was it to find reliable and trustworthy information?</h4><div class="plot"><div class="bars"><i data-v="0" style="height:0.0%"></i><i data-v="8" style="height:25.0%"></i><i data-v="22" style="height:68.8%"></i><i data-v="28" style="height:87.5%"></i><i data-v="22" style="height:68.8%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div><div class="chart"><h4>To what extent did you feel lonely or isolated after the move?</h4><div class="plot"><div class="bars"><i data-v="0" style="height:0.0%"></i><i data-v="2" style="height:4.8%"></i><i data-v="10" style="height:23.8%"></i><i data-v="30" style="height:71.4%"></i><i data-v="38" style="height:90.5%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div><div class="chart"><h4>How stressful did you find the overall relocation process?</h4><div class="plot"><div class="bars"><i data-v="2" style="height:6.2%"></i><i data-v="4" style="height:12.5%"></i><i data-v="16" style="height:50.0%"></i><i data-v="18" style="height:56.2%"></i><i data-v="30" style="height:93.8%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div></div>
-    <p class="caption">A survey was created to gather insights into users’ preferences on feature prioritization to find the common segment and validate our hypothesis.</p>
-
-    <h2>Competitive Analysis</h2>
-    <p>A competitive analysis revealed that existing solutions focus on isolated problems — such as task management, document storage, or relocation services — but fail to offer a unified, user-centric journey.</p>
-    <div class="boxes">
-      <div class="box"><b>Relocation Services</b><ul><li>Deel</li><li>Localyze</li></ul></div>
-      <div class="box"><b>Productivity Tools</b><ul><li>Notion</li><li>Todoist</li></ul></div>
-      <div class="box"><b>Community Platforms</b><ul><li>Reddit</li><li>Facebook Groups</li></ul></div>
-      <div class="box"><b>Document Storage</b><ul><li>Google Drive</li><li>Dropbox</li></ul></div>
-    </div>
-    <p>A comparison of relocation, productivity, and support platforms</p>
-    <table class="table">
-      <thead><tr><th>Competitor insight</th><th>UX Gap Identified</th><th>Opportunity</th></tr></thead>
-      <tbody>
-        <tr><td>Relocation tools are B2B focused</td><td>Individual users feel lost</td><td>Create a personal relocation platform</td></tr>
-        <tr><td>Task apps are generic</td><td>No relocation context</td><td>Phase based task structure</td></tr>
-        <tr><td>Document tools lack guidance</td><td>Users don’t know what’s required</td><td>“Documents you might need” section</td></tr>
-        <tr><td>Communities are scattered</td><td>Advice is hard to trust</td><td>In-app, location based discussions</td></tr>
-        <tr><td>No real time help</td><td>Users search externally</td><td>Embedded AI assistant</td></tr>
-      </tbody>
-    </table>
-
-    <h2>Key Insights &amp; Opportunity Areas</h2>
+    <h2><span class="num">03</span>User Research</h2>
+    <p>Three questions drove the research: what makes relocation hard, which tasks are time-critical, and how people organise a move today. I ran 4 in-depth interviews to find the pain points, then a survey to size them.</p>
+    <div class="survey" role="img" aria-label="Survey results: number of people per difficulty rating from 1 to 5, for four questions"><div class="chart"><h4>How challenging was it to manage and keep track of relocation-related tasks?</h4><div class="plot"><div class="bars"><i data-v="0" style="height:0.0%"></i><i data-v="18" style="height:50.0%"></i><i data-v="8" style="height:22.2%"></i><i data-v="34" style="height:94.4%"></i><i data-v="20" style="height:55.6%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div><div class="chart"><h4>How challenging was it to find reliable and trustworthy information?</h4><div class="plot"><div class="bars"><i data-v="0" style="height:0.0%"></i><i data-v="8" style="height:25.0%"></i><i data-v="22" style="height:68.8%"></i><i data-v="28" style="height:87.5%"></i><i data-v="22" style="height:68.8%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div><div class="chart"><h4>To what extent did you feel lonely or isolated after the move?</h4><div class="plot"><div class="bars"><i data-v="0" style="height:0.0%"></i><i data-v="2" style="height:4.8%"></i><i data-v="10" style="height:23.8%"></i><i data-v="30" style="height:71.4%"></i><i data-v="38" style="height:90.5%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div><div class="chart"><h4>How stressful did you find the overall relocation process?</h4><div class="plot"><div class="bars"><i data-v="2" style="height:6.2%"></i><i data-v="4" style="height:12.5%"></i><i data-v="16" style="height:50.0%"></i><i data-v="18" style="height:56.2%"></i><i data-v="30" style="height:93.8%"></i></div><div class="x"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div><small>Increasing order of difficulty →</small></div></div>
+    <p class="caption">Survey responses: tracking tasks, finding trustworthy information and isolation after the move all skewed to the hardest end of the scale.</p>
+    <h3>Key insights</h3>
     <div class="notes">
-      <div class="note blue"><b>Cognitive Overload</b>Users are drowning in unverified information from scattered sources</div>
-      <div class="note red"><b>The Verification Loop</b>70% of users waste 5+ hours/week cross-referencing data, lacking a 24/7 support system to validate their findings.</div>
-      <div class="note green"><b>Task Sequencing</b>Users fail to identify which tasks block others (e.g., "I need a bank account to rent, but an address to bank"), leading to operational deadlocks.</div>
-      <div class="note purple"><b>Asset Management</b>Critical documents (Visas, Deeds, Contracts) are often disorganized, causing panic during high-stakes appointments.</div>
-      <div class="note orange"><b>Social Displacement</b>Beyond logistics, users struggle with the "soft" challenges of relocation: loneliness and the lack of a local support network.</div>
+      <div class="note blue"><b>Cognitive Overload</b>Users are drowning in unverified information from scattered sources.</div>
+      <div class="note red"><b>The Verification Loop</b>70% of users waste 5+ hours/week cross-referencing data, with no 24/7 way to check what they found.</div>
+      <div class="note green"><b>Task Sequencing</b>Users can’t see which tasks block others, which leads to deadlocks.</div>
+      <div class="note purple"><b>Asset Management</b>Critical documents (visas, deeds, contracts) are scattered, causing panic before high-stakes appointments.</div>
+      <div class="note orange"><b>Social Displacement</b>Beyond logistics, loneliness and the lack of a local network are real costs of moving.</div>
     </div>
 
-    <h2>The Solution</h2>
-    <p>While brainstorming the best approach for the project, I empathised with the user's problems and made conceptions based on research and available data upon which I implemented the designs.</p>
-    <p>Listed below are some major product requirements that I considered the most important to drive the overall user experience.</p>
-    <ul>
-      <li>Automatically generate a comprehensive relocation task list with clear timelines, allowing users to fully manage their journey by editing, deleting, or tracking progress in real-time.</li>
-      <li>Add a feature that allows users to upload the required documents. The documents should be reviewed internally by us and anything missing should be clearly flagged.</li>
-      <li>Add a support system where users can clear any doubt 24 X 7. The user journey to reach out to the support should be intuitive.</li>
-      <li>Foster a sense of belonging by integrating community features, such as local event listings and discussion hubs, to help users feel 'at home' even before they arrive.</li>
-    </ul>
+    <h2><span class="num">04</span>Competitive Landscape</h2>
+    <p>I reviewed 8 products across four categories: relocation services (Deel, Localyze), productivity tools (Notion, Todoist), community platforms (Reddit, Facebook Groups) and document storage (Google Drive, Dropbox). Each solves one slice; none offers a personal, end-to-end journey.</p>
+    <table class="table"><thead><tr><th>Competitor insight</th><th>Gap for the user</th><th>Opportunity for Settle</th></tr></thead><tbody><tr><td>Relocation tools are B2B, sold to employers</td><td>Individual movers feel lost</td><td>A personal relocation platform</td></tr><tr><td>Task apps are generic</td><td>No relocation context or ordering</td><td>Phase-based task plan</td></tr><tr><td>Document tools lack guidance</td><td>Users don’t know what’s required</td><td>“Documents you might need”</td></tr><tr><td>Communities are scattered</td><td>Advice is hard to trust</td><td>Location-based discussions in-app</td></tr><tr><td>No real-time help</td><td>Users search externally</td><td>Embedded AI assistant</td></tr></tbody></table>
 
-    <h2>User Persona : Primary user</h2>
+    <h2><span class="num">05</span>Target User</h2>
     <div class="persona">
       <div class="id"><img src="assets/settle/persona-photo.avif" alt="Portrait of the persona, Priya Sharma" loading="lazy">
-        <dl><dt>NAME :</dt><dd>Priya Sharma</dd><dt>AGE :</dt><dd>27</dd><dt>ROLE :</dt><dd>Software Engineer</dd><dt>CONTEXT :</dt><dd>Moving from Bangalore, India → Berlin, Germany for a full-time job</dd><dt>DEVICE BEHAVIOUR :</dt><dd>Mobile-first, expects quick, clear actions</dd></dl></div>
+        <dl><dt>NAME :</dt><dd>Priya Sharma, 27</dd><dt>ROLE :</dt><dd>Software Engineer</dd><dt>CONTEXT :</dt><dd>Moving from Bangalore, India → Berlin, Germany for a full-time job</dd><dt>DEVICE :</dt><dd>Mobile-first, expects quick, clear actions</dd></dl></div>
       <div class="traits">
-        <div class="trait"><b>Behaviours</b><ul><li>Researches heavily but gets overwhelmed quickly.</li><li>Saves links, screenshots, and PDFs across devices.</li><li>Relies on WhatsApp groups / Reddit / friends for reassurance.</li><li>Checks tasks multiple times due to fear of mistakes.</li></ul></div>
-        <div class="trait"><b>Feelings</b><ul><li>Excited about career growth and living abroad.</li><li>Anxious, uncertain, mentally overloaded.</li><li>Wants reassurance that she’s “doing things right”.</li></ul></div>
-        <div class="trait"><b>Goals</b><ul><li>Complete all relocation tasks correctly and on time.</li><li>Avoid fines, legal trouble, or missing mandatory steps.</li><li>Feel in control instead of anxious during the move.</li><li>Settle into life in Germany as quickly as possible.</li></ul></div>
-        <div class="trait"><b>Pain Points</b><ul><li>Doesn’t know what to do first.</li><li>Overwhelmed by German bureaucracy &amp; unfamiliar terminology.</li><li>Information is fragmented across blogs, expat forums, and government sites</li><li>Afraid of missing time-sensitive legal steps.</li><li>Unsure which documents are critical vs optional.</li></ul></div>
+        <div class="trait"><b>Goals</b><ul><li>Complete every relocation task correctly and on time.</li><li>Avoid fines, legal trouble or missed mandatory steps.</li><li>Settle into life in Germany quickly.</li></ul></div>
+        <div class="trait"><b>Pain Points</b><ul><li>Doesn’t know what to do first.</li><li>Overwhelmed by unfamiliar bureaucracy and terminology.</li><li>Information is fragmented across blogs, forums and government sites.</li><li>Unsure which documents are critical vs optional.</li></ul></div>
       </div>
     </div>
 
-    <h2>Information Architecture</h2>
-    <p>The information architecture is designed to reduce cognitive overload by organizing relocation tasks into clear phases, while supporting users with documents, community knowledge, and contextual AI assistance.</p>
-    <figure class=""><img src="assets/settle/ia.avif" alt="Settle sitemap: Onboarding, Home, Documents, Overflow Menu, Community, Calendar and AI Assistant with their sub-screens" loading="lazy"></figure>
-
-    <h2>Design &amp; Prototyping</h2>
-    <h3>Lo-Fi Ideation</h3>
-    <p>The lo-fi ideation phase for Settle focused on defining a core structure that reduces cognitive load during the stressful relocation process. By mapping out a 'milestone-based' architecture, I visualized how to break down a complex international move into manageable, bite-sized steps before moving into high-fidelity details</p>
-    <figure class="sharp"><img src="assets/settle/lofi-ideation.avif" alt="Ideation board: reference imagery, grey-box wireframes, logo sketches and paper sketches of the main screens" loading="lazy"></figure>
-    <h3>Lo-Fi Designs</h3>
-    <figure class="sharp"><img src="assets/settle/lofi-designs.avif" alt="Low-fidelity wireframes and annotated paper sketches of onboarding, tasks, documents and community screens" loading="lazy"></figure>
-    <h3>Mood-board</h3>
-    <div class="mood"><img src="assets/settle/moodboard.avif" alt="Mood-board collage of moving boxes, a house mark, a map pin, a visa form and greens" loading="lazy"><p>I chose a cohesive palette of ombre and layered greens—ranging from deep forest to light sage—to transform the high-stress, "red-alert" chaos of relocation into a guided journey of growth and stability. By blending these tones, the UI moves away from the clinical feel of a standard checklist and instead mimics the natural transition of "planting roots" in a new home.</p></div>
-
-    <h2 id="hifi">Design System &amp; Hi-Fi Designs</h2>
-    <figure class="sharp"><img src="assets/settle/hifi.avif" alt="Design system: colour palette of layered greens, SF Pro typography, an eight-step grey scale, and the component library of buttons, inputs, cards, chips, menus and navigation" loading="lazy"></figure>
-
-    <h3 class="band-title">Easy Onboarding</h3>
-    <p>The sign-up process is frictionless, allowing entry via email or phone. Immediately after, users complete a targeted questionnaire to capture essential move details. This input is instantly processed to generate a personalized relocation roadmap, converting all the requirements into a tailored set of actionable tasks.</p>
-    <figure class=""><img src="assets/settle/onboarding.avif" alt="Onboarding flow: welcome screen, account creation, and a short questionnaire about location, move date and purpose" loading="lazy"></figure>
-
-    <h3 class="band-title">The App Experience</h3>
-    <p>To prevent cognitive overload, the roadmap is divided into logical phases. Users see only immediate, actionable items rather than a daunting long list, while retaining the flexibility to add or edit tasks. We also have a dedicated, encrypted hub that allows users to upload, review, and store sensitive paperwork, ensuring critical documents are always accessible. Additionally, we addressed social isolation through a Community Hub—a space to connect with peers. Finally, an integrated Calendar visualizes the timeline, keeping users aligned with their move date.</p>
-    <figure class=""><img src="assets/settle/app-experience.avif" alt="Six core screens: phased task list, create new task, documents hub, community, empty calendar and the Sia AI assistant" loading="lazy"></figure>
-
-    <h3 class="band-title">The UX through the journey</h3>
-    <p>To prevent cognitive overload, the roadmap is divided into logical phases. Users see only immediate, actionable items rather than a daunting long list, while retaining the flexibility to add or edit tasks. We also have a dedicated, encrypted hub allows users to upload, review, and store sensitive paperwork, ensuring critical documents are always accessible. Additionally, we addressed social isolation through a Community Hub—a space to connect with peers. Finally, an integrated Calendar visualizes the timeline, keeping users aligned with their move date.</p>
-    <figure class=""><img src="assets/settle/journey-40.avif" alt="App experience when the user is 40% through: phase 2 tasks, uploaded and pending documents, and the journey timeline" loading="lazy"></figure>
-
-    <h3 class="band-title">Feedback &amp; Error states</h3>
-    <figure class=""><img src="assets/settle/feedback.avif" alt="Profile, offline status, loading state and error state screens" loading="lazy"></figure>
-
-    <h2>Accessibility Considerations</h2>
-    <div class="a11y">
-      <div><h4>Cognitive &amp; Visual Accessibility</h4><div class="panel">
-        <p><em>Contrast &amp; Color:</em> The primary brand palette maintains a contrast ratio of 3.7:1. This specifically meets WCAG standards for large text and graphical components, ensuring key UI elements remain legible.</p>
-        <p><em>Readability:</em> Used high-legibility sans-serif fonts with generous line spacing to prevent "visual noise" during high-stress relocation tasks.</p></div></div>
-      <div><h4>Interactive &amp; Motor Accessibility</h4><div class="panel">
-        <p><em>Touch Targets:</em> All interactive elements (buttons, checkboxes, and tabs) maintain a minimum size of 44x44 dp for easy tapping while on the move.</p>
-        <p><em>Error Recovery:</em> Error states provide explicit instructions on how to fix issues, reducing frustration for users with motor or cognitive impairments.</p></div></div>
-      <div><h4>Assistive Technology (Screen Readers)</h4><div class="panel">
-        <p><em>Semantic Hierarchy:</em> Organized the app's hierarchy with clear headings so screen readers can easily phrase the relocation roadmap by milestones.</p>
-        <p><em>Live Regions:</em> Progress bars and document icons include descriptive labels (e.g., "Relocation 40% Complete") to provide context to visually impaired users beyond just the visual graphics.</p></div></div>
-      <div><h4>Linguistic &amp; Inclusive Design</h4><div class="panel">
-        <p><em>Plain Language:</em> Translated complex legal and bureaucratic terms into simple, actionable language to support non-native speakers and users under high stress.</p>
-        <p><em>Contextual Help:</em> Integrated an AI assistant (Sia) to provide immediate, simplified explanations for difficult document requirements, ensuring the app is accessible to all digital literacy levels.</p></div></div>
-    </div>
-
-    <h2>Prototypes</h2>
-    <div class="protos">
-      <img src="assets/settle/proto-tasks.jpg" alt="Settle home screen with the phased relocation task list" loading="lazy">
-      <div class="bubbles"><div class="bubble l">Settle: Reimagining the International Relocation Experience.</div><div class="bubble r">UX for Momentum: Visualizing the "Mid-Move" State.</div></div>
-      <img src="assets/settle/proto-community.jpg" alt="Settle community screen with dining, events and discussions" loading="lazy">
-    </div>
-    <a class="jump" href="https://www.figma.com/proto/tPsz1kYWrE2gMf47X8u1kt/Portfolio?node-id=61-44" target="_blank" rel="noopener"><span>Open the Figma prototype</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-
-    <h2>Key Takeaways</h2>
+    <h2 class="tight"><span class="num">06</span>Prioritisation &amp; MVP Scope</h2><p class="sub">Each MVP feature maps to a validated pain point.</p>
+    <table class="table"><thead><tr><th>Feature</th><th>Pain point it solves</th><th>Priority</th><th>Rationale</th></tr></thead><tbody><tr><td>Personalised, phased task plan</td><td>Task sequencing, cognitive overload</td><td>P0</td><td>The core job: tell the user what to do next, in the right order.</td></tr><tr><td>Document hub with review</td><td>Asset management</td><td>P0</td><td>Missing documents cause the costliest failures (missed appointments, rejected visas).</td></tr><tr><td>AI assistant (Sia)</td><td>The verification loop</td><td>P0</td><td>Directly attacks the 5+ hours/week spent cross-checking information.</td></tr><tr><td>Community hub</td><td>Social displacement</td><td>P1</td><td>Real need, but the logistics must work first; ships as a lighter v1.</td></tr></tbody></table>
+    <p class="flag">Priority labels are my ranking of the four MVP features; all four are in the MVP.</p>
+    <h3>Product requirements</h3>
     <ul>
-      <li>Designing for journeys is more effective than designing for features. This project reinforced the importance of structuring products around user progress and mental models, rather than isolated features. Organizing the app into relocation phases significantly reduced cognitive load and improved clarity.</li>
-      <li>Information architecture plays a critical role in reducing anxiety. Relocation is an emotionally stressful experience. A well-thought-out IA can act as a reassurance mechanism, showing users what to focus on now and what can wait.</li>
-      <li>Contextual visibility improves decision-making. Surfacing tasks, documents, and guidance based on the user’s current phase made the experience feel personalized and intentional, rather than overwhelming.</li>
-      <li>Support systems are as important as functional tools. Integrating community discussions and an AI assistant highlighted that users need emotional and informational support, not just checklists, during major life transitions.</li>
-      <li>Simplification is a design skill. One of the biggest challenges was distilling a complex system into a clear, high-level IA suitable for a portfolio, without losing the product’s depth or intent.</li>
+      <li>Generate a relocation task list with timelines automatically from a short onboarding questionnaire, and let users edit, delete and track tasks.</li>
+      <li>Let users upload required documents, review them, and clearly flag anything missing.</li>
+      <li>Give users a 24/7 way to clear doubts, reachable from anywhere in the app.</li>
+      <li>Build a sense of belonging with local event listings and discussions, so users feel at home before they arrive.</li>
+    </ul>
+
+    <h2 class="tight"><span class="num">07</span>Where AI Fits</h2><p class="sub">Two AI features, each aimed at a measured pain point.</p>
+    <div class="pillars"><div class="pillar"><i>01</i><b>Personalised plan generation</b>Answers to a few onboarding questions (origin, destination, move date, purpose) are turned into a tailored, phased roadmap of actionable tasks, instead of a generic checklist.</div><div class="pillar"><i>02</i><b>Sia, the AI relocation assistant</b>Explains document requirements and bureaucratic terms in plain language, in context, to cut the time users spend verifying information across sites.</div><div class="pillar"><i>!</i><b>Guardrails</b>Uploaded documents are reviewed and missing items flagged, so users aren’t relying on AI alone for high-stakes, legal steps.</div></div>
+
+    <h2><span class="num">08</span>The Product</h2>
+    <p>The roadmap is split into phases so users only see the next actionable items, with a secure document hub, a community space and a calendar that keeps them aligned to their move date.</p>
+    <figure><img src="assets/settle/onboarding.avif" alt="Onboarding: welcome, account creation and a short questionnaire that generates the plan" loading="lazy"><figcaption>Onboarding: a three-question flow generates the personalised plan.</figcaption></figure>
+    <figure><img src="assets/settle/app-experience.avif" alt="Core screens: phased task list, create task, documents hub, community, calendar and the AI assistant" loading="lazy"><figcaption>Core MVP: phased tasks, documents, community, calendar and Sia.</figcaption></figure>
+    <figure><img src="assets/settle/journey-40.avif" alt="The app when the user is 40% through: phase 2 tasks, documents and journey timeline" loading="lazy"><figcaption>Mid-move: progress, outstanding documents and the timeline when a user is 40% through.</figcaption></figure>
+    <a class="jump" href="https://www.figma.com/proto/tPsz1kYWrE2gMf47X8u1kt/Portfolio?node-id=61-44" target="_blank" rel="noopener"><span>Open the clickable prototype</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+
+    <h2><span class="num">09</span>Success Metrics</h2>
+    <p class="flag">Proposed metrics for a launch; Settle has not launched.</p>
+    <table class="table"><thead><tr><th>Type</th><th>Metric</th><th>Why it matters</th></tr></thead><tbody><tr><td>North star</td><td>Relocation tasks completed on time per active mover</td><td>Captures the core promise: a move that happens in the right order, on time.</td></tr><tr><td>Activation</td><td>Plan generated in the first session</td><td>Users only get value once they have their own roadmap.</td></tr><tr><td>Engagement</td><td>Weekly active movers; documents uploaded per mover</td><td>Shows Settle has become the place the move is managed.</td></tr><tr><td>Problem metric</td><td>Self-reported hours a week spent verifying information</td><td>Directly tracks the 5+ hours/week pain found in research.</td></tr><tr><td>Counter-metric</td><td>Questions escalated or answered wrongly by Sia</td><td>Speed must not come at the cost of trust on legal steps.</td></tr></tbody></table>
+
+    <h2><span class="num">10</span>Key Takeaways</h2>
+    <ul>
+      <li>Design for the journey, not features. Organising the product around relocation phases mattered more than any single feature, because it answered the user’s real question: what do I do next?</li>
+      <li>Quantify the pain before prioritising. The survey turned “relocation is stressful” into a measurable problem (5+ hours a week verifying information) that the AI assistant could be held to.</li>
+      <li>Find the gap in the market map. Laying out 8 competitors by category made the opportunity obvious: everyone solved a slice, nobody owned the journey.</li>
+      <li>AI needs guardrails in high-stakes flows. For legal and visa steps, AI speeds people up, but review and clear flags keep their trust.</li>
     </ul>
   </div>
 </main>

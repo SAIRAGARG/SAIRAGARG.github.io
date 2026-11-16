@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TRACKR — Coaching platform for fitness coaches · Saira Garg</title>
-<meta name="description" content="Case study: TRACKR, a platform where fitness coaches plan workouts, assign them to clients and track progress.">
+<meta name="description" content="Product case study: TRACKR, a coaching platform taken from coach interviews and a PRD to a working product and beta.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
@@ -23,100 +23,70 @@
 <main class="case">
   <a class="goback" href="index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg><span>GO BACK</span></a>
   <div class="col">
+    <div class="eyebrow">Product case study · Co-founder · 0 → 1</div>
     <h1>TRACKR | Coaching Platform for Fitness Coaches</h1>
     <p class="lede">A shared place for coaches and clients to plan workouts, record sessions and follow progress, replacing the spreadsheet, form and chat stack most coaches run today.</p>
-    <figure class="cover"><div class="browser"><img src="assets/trackr/product.jpg" alt="TRACKR coach overview showing active clients, client follow-ups, sessions logged and adherence, next to the client app logging a bench press set"></div></figure>
-
-    <h2>Project Overview</h2>
-    <p>Problem: Online coaches are capped not by demand but by admin. Every additional client adds hours of formatting plans, chasing check-ins and reconstructing context from chat threads.</p>
-    <p>Role: Co-Founder, Aug 2026 – Present. I defined the product from coach interviews through to a PRD covering positioning, pricing and success metrics, then built the coach web app and the client mobile app using AI tools (Claude Code, OpenAI Codex), going from idea to working product in under 3 months. TRACKR is now being prepared for a beta launch to test and iterate.</p>
+    <figure class="cover"><div class="browser"><img src="assets/trackr/product.jpg" alt="TRACKR coach overview with client follow-ups, sessions logged and adherence, next to the client app logging a bench press set"></div></figure>
+    <div class="meta"><div><span>ROLE</span><b>Co-Founder · Product</b></div><div><span>TIMELINE</span><b>Aug 2026 – Present</b></div><div><span>STATUS</span><b>Preparing beta launch</b></div></div>
+    <div class="tldr"><div><span>Problem</span><p>Online coaches are capped by admin, not demand: every new client adds hours of formatting plans, chasing check-ins and digging through chats.</p></div><div><span>What I did</span><p>Interviewed 8 coaches, wrote the PRD (positioning, pricing, metrics, launch gates) and built the coach web app and client mobile app with AI tools.</p></div><div><span>Outcome</span><p>Idea to working product in under 3 months, live at trackrdaily.com and preparing for a beta launch to test and iterate.</p></div></div>
     <a class="jump" href="https://trackrdaily.com" target="_blank" rel="noopener"><span>Visit trackrdaily.com</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
 
-    <h2>At a Glance</h2>
-    <div class="stats">
-      <div class="stat"><b>8</b><span>fitness coaches interviewed to define requirements</span></div>
-      <div class="stat"><b>&lt;3 mo</b><span>from idea to a working product</span></div>
-      <div class="stat"><b>2</b><span>surfaces: coach web workspace and client mobile app</span></div>
-      <div class="stat"><b>870+</b><span>exercises in the built-in library</span></div>
-    </div>
+    <div class="stats"><div class="stat"><b>8</b><span>fitness coaches interviewed</span></div><div class="stat"><b>&lt;3 mo</b><span>from idea to working product</span></div><div class="stat"><b>2</b><span>surfaces: coach web + client app</span></div><div class="stat"><b>870+</b><span>exercises in the library</span></div></div>
 
-    <h2>The Problem</h2>
-    <p>A typical online coach operates across four disconnected tools. Nothing connects them, so the coach becomes the integration layer, and that work grows with every client added.</p>
-    <table class="table">
-      <thead><tr><th>Job</th><th>Tool today</th><th>Where it fails</th></tr></thead>
-      <tbody>
-        <tr><td>Deliver the plan</td><td>Spreadsheet</td><td>Unreadable on a phone mid-set; no logging</td></tr>
-        <tr><td>Collect intake and check-ins</td><td>Online form</td><td>Responses sit in a sheet nobody opens</td></tr>
-        <tr><td>Communicate</td><td>Chat app</td><td>Coaching decisions buried in chat history</td></tr>
-        <tr><td>Track progress</td><td>Manual notes</td><td>No trend view; reconstructed from memory</td></tr>
-      </tbody>
-    </table>
-    <p class="caption">On the other side, the client cannot reliably answer two questions: what am I doing today, and am I making progress?</p>
+    <h2><span class="num">01</span>The Problem</h2>
+    <p>A typical online coach runs their business across four disconnected tools. Nothing connects them, so the coach becomes the integration layer, and that work grows with every client.</p>
+    <table class="table"><thead><tr><th>Job</th><th>Tool today</th><th>Where it fails</th></tr></thead><tbody><tr><td>Deliver the plan</td><td>Spreadsheet</td><td>Unreadable on a phone mid-set; no logging</td></tr><tr><td>Collect check-ins</td><td>Online form</td><td>Responses sit in a sheet nobody opens</td></tr><tr><td>Communicate</td><td>Chat app</td><td>Coaching decisions buried in chat history</td></tr><tr><td>Track progress</td><td>Manual notes</td><td>No trend view; rebuilt from memory</td></tr></tbody></table>
+    <p class="caption">On the other side, the client can’t reliably answer two questions: what am I doing today, and am I making progress?</p>
 
-    <h2>User Research</h2>
-    <p>I interviewed 8 fitness coaches to understand how they plan, deliver and review training today. The clearest finding was that scattered tools cap how many clients a coach can take on. That finding became the spine of the PRD.</p>
-    <h3>Key Insights &amp; Opportunity Areas</h3>
+    <h2><span class="num">02</span>User Research</h2>
+    <p>I interviewed 8 fitness coaches about how they plan, deliver and review training. The clearest finding: scattered tools cap how many clients a coach can take on. That reframed the product from “an app for coaches” to a measurable goal: raise the number of clients a coach can handle without lowering quality.</p>
     <div class="notes">
-      <div class="note sage"><b>No Unified View</b>Coaches react to whoever messages loudest, not to whoever needs help most.</div>
-      <div class="note slate"><b>Silent Churn</b>A disengaged client stays invisible until they quit, and the coach finds out weeks late.</div>
-      <div class="note clay"><b>Manual Plan Updates</b>One programming change repeated across a full roster costs hours of copy and paste.</div>
-      <div class="note plum"><b>No Trend View</b>Progression decisions are made on recall instead of the client’s logged history.</div>
-      <div class="note gold"><b>Admin Crowds Out Coaching</b>Quality starts to slip once a roster grows past what one person can track by hand.</div>
+      <div class="note sage"><b>No Unified View</b>Coaches react to whoever messages loudest, not whoever needs help most.</div>
+      <div class="note slate"><b>Silent Churn</b>A disengaged client stays invisible until they quit.</div>
+      <div class="note clay"><b>Manual Plan Updates</b>One programming change across a roster costs hours.</div>
+      <div class="note plum"><b>No Trend View</b>Progression decisions are made on recall, not data.</div>
+      <div class="note gold"><b>Admin Crowds Out Coaching</b>Quality slips once a roster outgrows what one person can track.</div>
     </div>
 
-    <h2>Positioning</h2>
-    <p>Most coaching platforms compete on breadth: nutrition, payments, video, wearables, white-labelling. TRACKR competes on depth in the loop a coach and client repeat every single day.</p>
-    <div class="pillars">
-      <div class="pillar"><i>01</i><b>Client-side speed</b>Open, see today’s session, log, done. The client should understand today’s workout in under two seconds.</div>
-      <div class="pillar"><i>02</i><b>One coaching workspace</b>Plan training, manage clients and review progress in one place. Reuse programs across clients.</div>
-      <div class="pillar"><i>03</i><b>Built for teams from day one</b>Every workspace is an org, whether it is one independent coach or a coaching business with several.</div>
-    </div>
+    <h2><span class="num">03</span>Positioning</h2>
+    <p>Incumbent coaching platforms compete on breadth (payments, video, white-labelling) and mostly price in USD. TRACKR competes on depth in the loop coach and client repeat every day, and on India-first pricing.</p>
+    <div class="pillars"><div class="pillar"><i>01</i><b>Client-side speed</b>Open, see today’s session, log, done. Target: today’s workout on screen in under 2 seconds.</div><div class="pillar"><i>02</i><b>One coaching workspace</b>Plan training, manage clients and review progress in one place; reuse programs across clients.</div><div class="pillar"><i>03</i><b>Built for teams from day one</b>Every workspace is an org, from one independent coach to a coaching business with several.</div></div>
 
-    <h2>The Solution</h2>
-    <p>Write the plan once, and every client gets their own copy. The coach creates a plan, shares it and sees how training is going; the client opens the app and knows exactly what to do next.</p>
-    <ul>
-      <li>Plan training: build programs with exercises, sets, reps and rest times, reuse templates and choose a start date for each client.</li>
-      <li>Follow each workout: clients see their assigned sessions, view exercise demonstrations and record their sets in the client app.</li>
-      <li>Review progress: completed sessions and workout history help the coach decide what comes next.</li>
-      <li>Know who needs you: a follow-up list puts the clients who need attention first.</li>
-    </ul>
+    <h2><span class="num">04</span>Scope: What We Said No To</h2>
+    <p>A small team ships by choosing. These were explicitly left out of v1, each with a reason, so the core loop could be excellent.</p>
+    <table class="table"><thead><tr><th>Out of scope for v1</th><th>Why</th></tr></thead><tbody><tr><td>Sales CRM and discovery calls</td><td>A different buyer moment; TRACKR starts after coach and client agree to work together.</td></tr><tr><td>Video calling</td><td>Meet and Zoom work fine; no way to differentiate.</td></tr><tr><td>Open-ended chat inbox</td><td>Rebuilding WhatsApp with fewer features; feedback is tied to sessions instead.</td></tr><tr><td>Payments and accounting</td><td>Large compliance surface for unclear v1 value.</td></tr><tr><td>White-labelling</td><td>The incumbents’ battleground; expensive and not our edge.</td></tr></tbody></table>
+
+    <h2><span class="num">05</span>The Solution</h2>
+    <p>Write the plan once, and every client gets their own copy.</p>
+    <div class="pillars"><div class="pillar"><i>Plan</i><b>Program builder</b>Exercises, sets, reps and rest; reusable templates and a start date per client.</div><div class="pillar"><i>Train</i><b>Client app</b>Today’s session first, exercise demos and set-by-set logging.</div><div class="pillar"><i>Review</i><b>Follow-up list</b>History and a ranked list that puts the clients who need attention first.</div></div>
     <h3>What it replaces</h3>
     <div class="replace">
-      <div><s>Copying last week’s spreadsheet for every client</s><i>→</i><span>Assign a program once. Each client gets their own copy, week after week.</span></div>
-      <div><s>Asking “did you train today?” in a chat</s><i>→</i><span>Clients log every set as they go, and the coach sees it the same day.</span></div>
+      <div><s>Copying last week’s spreadsheet for every client</s><i>→</i><span>Assign a program once; each client gets their own copy.</span></div>
+      <div><s>Asking “did you train today?” in a chat</s><i>→</i><span>Clients log every set, and the coach sees it the same day.</span></div>
       <div><s>Scrolling threads to find who’s slipping</s><i>→</i><span>A follow-up list puts the clients who need you first.</span></div>
     </div>
 
-    <h2>Product Architecture</h2>
-    <p>Two surfaces share one backend. Coaches work on the web, where program building and roster review are comfortable at a desk and still usable on a phone browser between sessions. Clients train in a mobile app built for the gym floor, where speed matters more than features.</p>
-    <div class="pillars">
-      <div class="pillar"><i>Coach</i><b>Web workspace</b>Overview, clients, programs and the exercise library. One coach surface instead of two.</div>
-      <div class="pillar"><i>Client</i><b>Mobile app</b>Today’s session first, set-by-set logging and workout history.</div>
-      <div class="pillar"><i>Org</i><b>Roles and access</b>Coach, Admin and Super-user roles, with each coach seeing only their own clients.</div>
-    </div>
+    <h2><span class="num">06</span>Pricing &amp; Business Model</h2>
+    <p>Coaches already price per client, so TRACKR does too, and it gets cheaper per client as the roster grows. That rewards exactly the behaviour we want: coaches taking on more clients.</p>
+    <table class="table"><thead><tr><th>Roster size</th><th>Price per active client / month</th></tr></thead><tbody><tr><td>Up to 25 clients</td><td>₹300</td></tr><tr><td>Up to 50 clients</td><td>₹200</td></tr><tr><td>Up to 100 clients</td><td>₹150</td></tr><tr><td>Up to 250 clients</td><td>₹100</td></tr><tr><td>250+</td><td>Custom</td></tr></tbody></table>
+    <p class="caption">Free during early access; billed monthly in rupees with GST invoices once billing launches. Only active clients count toward the bill.</p>
 
-    <h2>Success Metrics</h2>
-    <p>The north-star metric is weekly logged sessions per active client. It captures both sides of the product: the coach published something worth doing, and the client did it.</p>
-    <table class="table">
-      <thead><tr><th>Layer</th><th>Metric</th><th>How it is measured</th></tr></thead>
-      <tbody>
-        <tr><td>Activation</td><td>Workspace activated</td><td>At least one client logs at least one session</td></tr>
-        <tr><td>Engagement</td><td>Weekly adherence</td><td>Sessions logged ÷ sessions assigned</td></tr>
-        <tr><td>Retention</td><td>Coach week-4 retention</td><td>Coach still active in week 4</td></tr>
-        <tr><td>Leverage</td><td>Clients per coach</td><td>Median, month 3 vs month 1</td></tr>
-        <tr><td>Performance</td><td>Time to today’s workout</td><td>Under 2 seconds on a cold start</td></tr>
-      </tbody>
-    </table>
+    <h2><span class="num">07</span>Success Metrics</h2>
+    <p>North-star metric: <b>weekly logged sessions per active client</b>. It captures both sides: the coach published something worth doing, and the client did it.</p>
+    <table class="table"><thead><tr><th>Layer</th><th>Metric</th><th>How it’s measured</th></tr></thead><tbody><tr><td>Activation</td><td>Workspace activated</td><td>At least one client logs at least one session</td></tr><tr><td>Engagement</td><td>Weekly adherence</td><td>Sessions logged ÷ sessions assigned</td></tr><tr><td>Retention</td><td>Coach week-4 retention</td><td>Coach still active in week 4</td></tr><tr><td>Leverage</td><td>Clients per coach</td><td>Median, month 3 vs month 1</td></tr><tr><td>Performance</td><td>Time to today’s workout</td><td>Under 2 seconds on a cold start</td></tr></tbody></table>
 
-    <h2>Building with AI</h2>
-    <p>TRACKR is built with AI coding tools. I work as the product owner: writing the requirements, reviewing flows in the running product, and directing Claude Code and OpenAI Codex through the coach web app and the client mobile app. That took TRACKR from idea to a working product in under 3 months.</p>
+    <h2 class="tight"><span class="num">08</span>Launch Plan</h2><p class="sub">Each phase has a gate it must pass before the next one starts.</p>
+    <table class="table"><thead><tr><th>Phase</th><th>Scope</th><th>Gate to move on</th></tr></thead><tbody><tr><td>Alpha</td><td>5 design-partner coaches; programs, assignment, logging, history</td><td>5 coaches run real clients for 2 weeks with no spreadsheet</td></tr><tr><td>Beta (next)</td><td>25 workspaces; check-ins, feedback, follow-ups, notifications, team directories</td><td>≥65% adherence sustained for 4 weeks; ≥50% coach week-4 retention</td></tr><tr><td>General availability</td><td>Bulk import, team analytics, billing</td><td>50 paying workspaces</td></tr></tbody></table>
 
-    <h2>Key Takeaways</h2>
+    <h2><span class="num">09</span>Building with AI</h2>
+    <p>I own the product and build it with AI coding tools: writing requirements, reviewing flows in the running product, and directing Claude Code and OpenAI Codex across the coach web app and the client mobile app. That compressed idea-to-working-product into under 3 months.</p>
+
+    <h2><span class="num">10</span>Key Takeaways</h2>
     <ul>
-      <li>Depth beats breadth early on. Choosing the daily coach and client loop over a long feature list kept the product small enough to finish and sharp enough to explain.</li>
-      <li>Interviews should change the plan. Talking to coaches moved the problem statement from "coaches need an app" to "scattered tools cap client capacity", which is a problem with a measurable outcome.</li>
-      <li>Write the metric before the feature. Defining adherence and retention up front made it easier to say no to work that would not move them.</li>
-      <li>AI tools shift the bottleneck to product judgement. When building is fast, the hard part becomes knowing precisely what to ask for and noticing when the result is wrong.</li>
+      <li>Interviews should change the plan. Coach conversations moved the problem from “coaches need an app” to “scattered tools cap client capacity”, which has a measurable outcome.</li>
+      <li>Depth beats breadth early on. Saying no to payments, video and chat kept the product small enough to ship and sharp enough to explain.</li>
+      <li>Write the metric and the gate before the feature. Adherence and retention targets make it easy to decide what not to build next.</li>
+      <li>When building is fast, product judgement is the bottleneck. AI tools shift the hard part to knowing exactly what to ask for and noticing when the result is wrong.</li>
     </ul>
   </div>
 </main>
